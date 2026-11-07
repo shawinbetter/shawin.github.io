@@ -390,6 +390,7 @@ main { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 .section-head h2 { margin-top: 8px; font-size: clamp(28px, 4.1vw, 46px); line-height: 1.08; letter-spacing: -0.045em; }
 .section-head > p { max-width: 430px; color: var(--muted); font-size: 12.5px; line-height: 1.8; text-align: right; }
 
+.time-plan { margin-top: 6px; color: var(--muted-2); font-family: var(--mono); font-size: 9.5px; line-height: 1.7; letter-spacing: 0.01em; }
 .lift-note { margin-top: 6px; color: var(--lime); font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.02em; }
 .program-table-wrap { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .program-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 11.5px; }

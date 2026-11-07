@@ -142,7 +142,7 @@
       },
       {
         slot: "rear-delt", name: "反向蝴蝶机", en: "Reverse Pec Deck",
-        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
         primary: ["rearDelt", "rhomboids"], secondary: ["traps", "rotator"],
         cue: "手臂微屈，肘带动向两侧打开；不要耸肩，不要用斜方肌把重量提起来。",
         gif: "reardelt",
@@ -163,7 +163,7 @@
       },
       {
         slot: "abs-pull", name: "斜凳卷腹", en: "Decline Crunch",
-        role: "核心", badge: "core", sets: "2", reps: "8–12", rir: "1–2", rest: "45″",
+        role: "核心", badge: "core", sets: "3", reps: "8–12", rir: "1–2", rest: "45″",
         primary: ["abs", "obliques"], secondary: ["hipFlexors"],
         cue: "斜凳调到 15–20°，脚固定；把胸骨卷向骨盆，不是用手拉头。下放时保持腹部张力。",
         gif: "decline-crunch", altLabel: "卷腹变式",
@@ -195,14 +195,14 @@
       },
       {
         slot: "split-squat", name: "保加利亚分腿蹲", en: "Bulgarian Split Squat",
-        role: "辅项", badge: "func", sets: "3", reps: "8–12 / 腿", rir: "2", rest: "90″",
+        role: "辅项", badge: "func", sets: "4", reps: "8–12 / 腿", rir: "2", rest: "90″",
         primary: ["quads", "glutes", "adductors"], secondary: ["hamstrings", "obliques", "hipFlexors"],
         cue: "前脚踩稳，后脚背搭凳；垂直下蹲，前膝跟脚尖同向。图中是分腿蹲，后脚垫高即保加利亚。先徒手，再加哑铃。",
         gif: "split-squat"
       },
       {
         slot: "leg-curl", name: "俯卧腿弯举", en: "Lying Leg Curl",
-        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "4", reps: "8–12", rir: "1", rest: "60″",
         primary: ["hamstrings"], secondary: ["calves", "glutes"],
         cue: "髋部贴住垫子，膝轴对准器械转轴；用腘绳肌把小腿卷向臀部，慢回。重量轻一点，膝痛就停。",
         gif: "leg-curl"
