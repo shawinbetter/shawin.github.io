@@ -73,14 +73,13 @@
         ]
       },
       {
-        slot: "lateral", name: "侧平举 + Y举（超级组）", en: "Lateral Raise + Prone Y Raise",
-        role: "辅项", badge: "aux", sets: "3", reps: "8–12 + 8–12", rir: "1", rest: "60–90″",
-        primary: ["sideDelt", "rearDelt", "traps"], secondary: ["rotator", "rhomboids"],
-        cue: "先做侧平举 8–12 次，不休息接 Y举 8–12 次；一轮完成再休息 60–90 秒。Y举用轻重量，拇指朝上，手臂向斜前方举成 Y。",
-        gif: "lateral", altLabel: "侧平举 / Y举",
+        slot: "lateral", name: "哑铃侧平举", en: "Dumbbell Lateral Raise",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
+        primary: ["sideDelt"], secondary: ["traps", "rotator"],
+        cue: "肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。重量宁轻勿甩，脖子放松。",
+        gif: "lateral", altLabel: "替补",
         alts: [
-          alt("lateral-only", "只做哑铃侧平举", "Dumbbell Lateral Raise", "lateral", ["sideDelt"], ["traps", "rotator"], "肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。重量宁轻勿甩。", { sets: "3", reps: "8–12", rest: "60″" }),
-          alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；用轻重量，感受肩胛下束和后束，不要耸肩。", { sets: "3", reps: "8–12", rest: "60″" })
+          alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；用轻重量，感受肩胛下束和后束。它更偏后束 / 下斜方，不是中束的完全等价替代。", { sets: "3", reps: "8–12", rest: "60″" })
         ]
       },
       {
