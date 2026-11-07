@@ -20,7 +20,7 @@ python3 -m http.server 8788
 
 ## 动作图来源
 
-动作 GIF 由 [Free Exercise DB](https://github.com/yuhonas/free-exercise-db) 的 Public Domain（Unlicense）动作照片制作，每张 GIF 为 2 帧循环，仅用于动作示意。
+动作 GIF 由 [Free Exercise DB](https://github.com/yuhonas/free-exercise-db) 的 Public Domain（Unlicense）动作照片制作，每张 GIF 为 2 帧循环，仅用于动作示意。当前共 33 个。
 
 ## 更新方式
 

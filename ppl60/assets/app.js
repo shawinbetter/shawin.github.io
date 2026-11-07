@@ -47,6 +47,13 @@
         gif: "bench", fixed: "主项固定 · 4–6 周不换"
       },
       {
+        slot: "incline-press", name: "哑铃上斜推", en: "Incline Dumbbell Press",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "2", rest: "90″",
+        primary: ["chest", "frontDelt", "triceps"], secondary: ["serratus", "rotator"],
+        cue: "靠背调到 30–45°，肩胛后缩下沉；哑铃下放到上胸两侧，前臂接近垂直。推起时呼气，不要为了幅度塌腰。",
+        gif: "incline-press"
+      },
+      {
         slot: "machine-press", name: "器械推肩", en: "Machine Shoulder Press",
         role: "主项", badge: "main", sets: "3", reps: "8–12", rir: "1–2", rest: "2′",
         primary: ["frontDelt", "sideDelt", "triceps"], secondary: ["chest", "serratus", "rotator"],
@@ -187,6 +194,13 @@
         primary: ["quads", "glutes", "adductors"], secondary: ["hamstrings", "obliques", "hipFlexors"],
         cue: "前脚踩稳，后脚背搭凳；垂直下蹲，前膝跟脚尖同向。图中是分腿蹲，后脚垫高即保加利亚。先徒手，再加哑铃。",
         gif: "split-squat"
+      },
+      {
+        slot: "leg-curl", name: "俯卧腿弯举", en: "Lying Leg Curl",
+        role: "辅项", badge: "aux", sets: "3", reps: "10–15", rir: "1", rest: "60″",
+        primary: ["hamstrings"], secondary: ["calves", "glutes"],
+        cue: "髋部贴住垫子，膝轴对准器械转轴；用腘绳肌把小腿卷向臀部，慢回。重量轻一点，膝痛就停。",
+        gif: "leg-curl"
       },
       {
         slot: "adductor", name: "内收肌器械", en: "Hip Adductor Machine",
