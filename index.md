@@ -1,3 +1,5 @@
+> **PPL 60 训练计划**：[推 / 拉 / 蹲 · 60 分钟增肌 × 功能](ppl60/)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/shawinbetter/shawin.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.

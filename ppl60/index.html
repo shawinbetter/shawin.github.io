@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0d11">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="推 / 拉 / 蹲三分化：增肌与功能性训练并行，每次约 60 分钟。含动作肌群、循环演示、每周替代动作与执行规则。">
+  <meta property="og:title" content="PPL 60 · 推 / 拉 / 蹲训练计划">
+  <meta property="og:description" content="增肌 × 功能，一小时练完。器械推肩、对握引体、内收肌与抗旋转都安排好了。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shawinbetter.github.io/shawin.github.io/ppl60/assets/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>PPL 60 · 推 / 拉 / 蹲训练计划</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0d11'/%3E%3Cpath d='M14 44V20h12c8 0 12 4 12 10s-4 10-12 10h-5v4h-7zm7-10h5c4 0 6-2 6-4s-2-4-6-4h-5v8z' fill='%23c9f56a'/%3E%3Ccircle cx='47' cy='27' r='7' fill='none' stroke='%23c9f56a' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到训练内容</a>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="hero">
+    <nav class="topbar" aria-label="页面工具">
+      <a class="brand" href="#top" aria-label="回到顶部">
+        <span class="brand-mark">PPL</span>
+        <span class="brand-copy"><b>60 MIN</b><i>hypertrophy × function</i></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="printBtn" type="button" title="打印或保存为 PDF">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z"/></svg>
+          <span>打印 / PDF</span>
+        </button>
+        <button class="icon-btn" id="shareBtn" type="button" title="复制当前页面链接">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.2M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.2"/></svg>
+          <span>复制链接</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="hero-grid" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> 2026 · 8-WEEK BLOCK · RECOMP</p>
+        <h1>推<span>/</span>拉<span>/</span>蹲</h1>
+        <p class="hero-sub">增肌 × 功能，一小时练完。</p>
+        <p class="lede">以平板杠铃卧推、传统硬拉、泽奇 / 杠铃深蹲为主项；肩前中束放推日、后束放拉日；卷腹、抗旋转和单边动作各就各位。所有替代动作都能在下拉菜单里换。</p>
+        <div class="hero-stats" aria-label="计划概览">
+          <div><b>3</b><span>分化日</span></div>
+          <div><b>60′</b><span>每次上限</span></div>
+          <div><b>8</b><span>周一个区块</span></div>
+          <div><b>1×</b><span>大重量硬拉 / 周</span></div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#dayNav" id="startBtn">开始今天的训练</a>
+          <a class="btn ghost" href="#decisions">先看动作取舍</a>
+        </div>
+        <p class="hero-note">为微信内打开优化：无外链字体、无 CDN、无自动播放视频；动作演示是内嵌 SVG 循环动画，弱网也不会出现裂图。</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit">
+          <div class="orbit-ring ring-a"></div>
+          <div class="orbit-ring ring-b"></div>
+          <div class="orbit-core"><b>60</b><span>MIN / SESSION</span></div>
+          <div class="orbit-chip chip-push">PUSH<small>胸 · 肩 · 三头</small></div>
+          <div class="orbit-chip chip-pull">PULL<small>背 · 后束 · 二头</small></div>
+          <div class="orbit-chip chip-squat">SQUAT<small>腿 · 臀 · 内收</small></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="day-nav" id="dayNav" aria-label="训练日切换">
+    <div class="day-nav-inner">
+      <span class="day-nav-label">选择训练日</span>
+      <div class="day-tabs" role="tablist" aria-label="推拉蹲">
+        <button class="day-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="day-push" data-day="push">
+          <span class="tab-index">01</span><span class="tab-name">推日</span><span class="tab-sub">PUSH</span>
+        </button>
+        <button class="day-tab" type="button" role="tab" aria-selected="false" aria-controls="day-pull" data-day="pull">
+          <span class="tab-index">02</span><span class="tab-name">拉日</span><span class="tab-sub">PULL</span>
+        </button>
+        <button class="day-tab" type="button" role="tab" aria-selected="false" aria-controls="day-squat" data-day="squat">
+          <span class="tab-index">03</span><span class="tab-name">蹲日</span><span class="tab-sub">SQUAT</span>
+        </button>
+      </div>
+      <div class="day-nav-meta"><span class="pulse"></span> 默认每周 3 练 · 其余日走路 / 低强度有氧</div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="day-panel is-active" id="day-push" data-day="push" role="tabpanel" aria-label="推日">
+      <div class="day-head">
+        <div class="day-head-main">
+          <p class="day-kicker">DAY 01 · PUSH</p>
+          <h2>推日 <small>胸 · 肩前 / 中束 · 三头 · 腹</small></h2>
+          <p class="day-intro">卧推先做，器械推肩第二，侧平举在后。推日的肩部只做“稳定器械 + 孤立中束”，不再加坐姿哑铃推肩，避免在疲劳时还要花力气稳定。</p>
+          <div class="day-meta">
+            <span>约 58–62 分钟</span><span>18 个正式组</span><span>主项 RIR 2</span><span>辅项 RIR 1–2</span>
+          </div>
+        </div>
+        <div class="time-budget" aria-label="推日时间预算">
+          <div class="tb-row"><span>热身 + 递增组</span><i style="--w:18%"></i><b>8′</b></div>
+          <div class="tb-row"><span>卧推 + 器械推肩</span><i style="--w:32%"></i><b>18′</b></div>
+          <div class="tb-row"><span>夹胸 + 侧平举 + 三头</span><i style="--w:30%"></i><b>17′</b></div>
+          <div class="tb-row"><span>卷腹 + 抗旋转</span><i style="--w:20%"></i><b>10′</b></div>
+        </div>
+      </div>
+      <div class="day-layout">
+        <div class="day-main">
+          <div class="warmup-card">
+            <div class="wu-head"><span>WARM-UP · 8′</span><b>通用 + 卧推递增</b></div>
+            <p>4′ 单车 / 划船 → 2′ 胸椎旋转、肩胛俯卧撑、肩外旋 → 卧推 3–4 组递增（空杆 → 50% → 70% → 工作重量）。不做长时间静态拉伸；收尾 2′ 慢走 + 呼吸。</p>
+          </div>
+          <div class="session-bar" data-session="push">
+            <div class="session-copy"><b>本次完成度</b><span data-progress-text>0 / 7</span></div>
+            <div class="progress"><i data-progress-bar></i></div>
+            <button class="text-btn" type="button" data-reset="push">重置</button>
+          </div>
+          <div class="exercise-list" data-list="push"></div>
+        </div>
+        <aside class="muscle-panel" aria-label="肌群热图">
+          <div class="panel-head"><span>MUSCLE MAP</span><b data-map-title>点一个动作</b></div>
+          <div class="body-map" data-body-map></div>
+          <div class="map-legend"><span><i class="lg-on"></i>主要发力</span><span><i class="lg-off"></i>稳定 / 辅助</span></div>
+          <div class="map-readout" data-map-readout>
+            <p>把鼠标移到动作卡，或在手机上点一下动作卡，就能看到主要练到的肌群。</p>
+          </div>
+          <div class="panel-note">热图是示意，不是解剖图。主动肌、协同肌和稳定肌会同时参与；动作质量优先于“练到哪块”的标签。</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="day-panel" id="day-pull" data-day="pull" role="tabpanel" aria-label="拉日" hidden>
+      <div class="day-head">
+        <div class="day-head-main">
+          <p class="day-kicker">DAY 02 · PULL</p>
+          <h2>拉日 <small>背 · 后束 · 二头 · 腹 · 抗侧屈</small></h2>
+          <p class="day-intro">硬拉先做，但只做 3 个正式组；引体向上作为辅项，放在硬拉之后、划船之前。握力被硬拉吃掉时，用助力带或辅助引体，不丢动作质量。</p>
+          <div class="day-meta">
+            <span>约 58–62 分钟</span><span>18 个正式组</span><span>硬拉 RIR 2</span><span>引体 RIR 2</span>
+          </div>
+        </div>
+        <div class="time-budget" aria-label="拉日时间预算">
+          <div class="tb-row"><span>热身 + 硬拉递增</span><i style="--w:20%"></i><b>10′</b></div>
+          <div class="tb-row"><span>硬拉正式组</span><i style="--w:24%"></i><b>12′</b></div>
+          <div class="tb-row"><span>引体 + 划船</span><i style="--w:26%"></i><b>14′</b></div>
+          <div class="tb-row"><span>后束 + 二头 + 核心</span><i style="--w:28%"></i><b>16′</b></div>
+        </div>
+      </div>
+      <div class="day-layout">
+        <div class="day-main">
+          <div class="warmup-card">
+            <div class="wu-head"><span>WARM-UP · 8′</span><b>通用 + 硬拉递增</b></div>
+            <p>4′ 单车 / 划船 → 2′ 髋铰链、髋 / 踝活动、肩胛下沉 → 硬拉 3–4 组递增（空杆 → 50% → 70% → 工作重量）。不做长时间静态拉伸；收尾 2′ 慢走 + 呼吸。</p>
+          </div>
+          <div class="session-bar" data-session="pull">
+            <div class="session-copy"><b>本次完成度</b><span data-progress-text>0 / 7</span></div>
+            <div class="progress"><i data-progress-bar></i></div>
+            <button class="text-btn" type="button" data-reset="pull">重置</button>
+          </div>
+          <div class="exercise-list" data-list="pull"></div>
+        </div>
+        <aside class="muscle-panel" aria-label="肌群热图">
+          <div class="panel-head"><span>MUSCLE MAP</span><b data-map-title>点一个动作</b></div>
+          <div class="body-map" data-body-map></div>
+          <div class="map-legend"><span><i class="lg-on"></i>主要发力</span><span><i class="lg-off"></i>稳定 / 辅助</span></div>
+          <div class="map-readout" data-map-readout>
+            <p>硬拉不是“练背阔肌”的动作，它更像全身后链的负载测试；背阔肌的主要训练量来自引体和划船。</p>
+          </div>
+          <div class="panel-note">热图是示意，不是解剖图。主动肌、协同肌和稳定肌会同时参与；动作质量优先于“练到哪块”的标签。</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="day-panel" id="day-squat" data-day="squat" role="tabpanel" aria-label="蹲日" hidden>
+      <div class="day-head">
+        <div class="day-head-main">
+          <p class="day-kicker">DAY 03 · SQUAT</p>
+          <h2>蹲日 <small>腿 · 臀 · 内收肌 · 小腿 · 抗侧屈</small></h2>
+          <p class="day-intro">不做腿弯举。后链交给罗马尼亚硬拉，单边交给保加利亚分腿蹲，内收肌用器械 + 哥本哈根侧桥补上。杠铃深蹲和泽奇深蹲按 4–6 周区块轮换，不要每周换。</p>
+          <div class="day-meta">
+            <span>约 58–62 分钟</span><span>18 个正式组</span><span>深蹲 RIR 2</span><span>单边 RIR 2</span>
+          </div>
+        </div>
+        <div class="time-budget" aria-label="蹲日时间预算">
+          <div class="tb-row"><span>热身 + 深蹲递增</span><i style="--w:20%"></i><b>10′</b></div>
+          <div class="tb-row"><span>深蹲正式组</span><i style="--w:22%"></i><b>12′</b></div>
+          <div class="tb-row"><span>RDL + 分腿蹲</span><i style="--w:26%"></i><b>14′</b></div>
+          <div class="tb-row"><span>腿屈伸 + 内收 + 小腿 + 侧桥</span><i style="--w:32%"></i><b>18′</b></div>
+        </div>
+      </div>
+      <div class="day-layout">
+        <div class="day-main">
+          <div class="warmup-card">
+            <div class="wu-head"><span>WARM-UP · 8′</span><b>通用 + 深蹲递增</b></div>
+            <p>4′ 单车 / 划船 → 2′ 髋 / 踝活动、深蹲模式、核心支撑 → 深蹲 3–4 组递增（空杆 → 50% → 70% → 工作重量）。不做长时间静态拉伸；收尾 2′ 慢走 + 呼吸。</p>
+          </div>
+          <div class="session-bar" data-session="squat">
+            <div class="session-copy"><b>本次完成度</b><span data-progress-text>0 / 7</span></div>
+            <div class="progress"><i data-progress-bar></i></div>
+            <button class="text-btn" type="button" data-reset="squat">重置</button>
+          </div>
+          <div class="exercise-list" data-list="squat"></div>
+        </div>
+        <aside class="muscle-panel" aria-label="肌群热图">
+          <div class="panel-head"><span>MUSCLE MAP</span><b data-map-title>点一个动作</b></div>
+          <div class="body-map" data-body-map></div>
+          <div class="map-legend"><span><i class="lg-on"></i>主要发力</span><span><i class="lg-off"></i>稳定 / 辅助</span></div>
+          <div class="map-readout" data-map-readout>
+            <p>你的上肢肌肉量明显高于下肢（InBody 节段分析），蹲日不要跳过热身和单边动作；下肢是全计划里最值得“多做一点”的部分。</p>
+          </div>
+          <div class="panel-note">热图是示意，不是解剖图。主动肌、协同肌和稳定肌会同时参与；动作质量优先于“练到哪块”的标签。</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section week-section" id="week">
+      <div class="section-head">
+        <div><p class="eyebrow">WEEKLY RHYTHM</p><h2>一周怎么排</h2></div>
+        <p>默认 3 个力量日，间隔至少 1 天；其余日走路或低强度有氧。不要把大重量硬拉临时塞进蹲日前一天。</p>
+      </div>
+      <div class="week-grid">
+        <article class="week-day push"><span class="wd">MON</span><h3>推日</h3><p>卧推 · 器械推肩 · 侧平举 · 三头 · 卷腹</p><b>60′</b></article>
+        <article class="week-day cardio"><span class="wd">TUE</span><h3>有氧 / 走路</h3><p>20–30′ Zone 2；7–9k 步；不做高强度间歇</p><b>20–30′</b></article>
+        <article class="week-day pull"><span class="wd">WED</span><h3>拉日</h3><p>硬拉 · 对握引体 · 划船 · 后束 · 二头</p><b>60′</b></article>
+        <article class="week-day cardio"><span class="wd">THU</span><h3>有氧 / 走路</h3><p>20–30′ Zone 2；肩颈放松；早睡优先</p><b>20–30′</b></article>
+        <article class="week-day squat"><span class="wd">FRI</span><h3>蹲日</h3><p>深蹲 · RDL · 分腿蹲 · 内收肌 · 小腿</p><b>60′</b></article>
+        <article class="week-day optional"><span class="wd">SAT</span><h3>可选：弱项 / 功能</h3><p>30–40′：单臂划船、侧平举、二头三头、内收肌、Pallof</p><b>30–40′</b></article>
+        <article class="week-day rest"><span class="wd">SUN</span><h3>完全休息</h3><p>睡眠、散步、晒太阳；不补训练量</p><b>—</b></article>
+      </div>
+      <div class="week-foot">
+        <div>
+          <p><b>如果你原来每周四练：</b>先把周六的“可选日”做成 30–40 分钟弱项课，连续 2 周恢复正常再考虑加量；不要直接变成每周两次大重量硬拉。想提高频率时，按“推 → 拉 → 蹲 → 休”滚动，硬拉仍保持每周最多 1 次大重量。</p>
+          <p class="optional-template"><b>可选第 4 练（30–40′，不做到力竭）：</b>单臂绳索划船 2×10/侧 · 侧平举 2×15 · 二头 2×10 · 三头 2×12 · 内收肌 2×15 · Pallof 2×10/侧 · 最后 10′ Zone 2。</p>
+        </div>
+        <a class="text-link" href="#rules">看渐进与减载规则 →</a>
+      </div>
+    </section>
+
+    <section class="section rules-section" id="rules">
+      <div class="section-head">
+        <div><p class="eyebrow">EXECUTION</p><h2>把计划练成结果</h2></div>
+        <p>你缺的不是更多动作，而是可重复的负荷记录、RIR 控制和每周复盘。下面 6 条比换动作更重要。</p>
+      </div>
+      <div class="rules-grid">
+        <article class="rule-card"><span class="rule-num">01</span><h3>双进阶，不追极限</h3><p>主项先在目标次数区间内加次数；所有组都到上限且 RIR ≥ 2，再加重 2.5–5 kg。硬拉不加到力竭，不做 1RM 测试。</p><div class="rule-tag">Bench +2.5 kg · Squat +2.5–5 kg · Deadlift +5 kg</div></article>
+        <article class="rule-card"><span class="rule-num">02</span><h3>RIR 比“练到废”重要</h3><p>主项留 2 次余力（RIR 2），辅项留 1–2 次。最后一组可以到 RIR 1，但动作变形就停。疲劳不是进步指标。</p><div class="rule-tag">RPE 7–8 ≈ 还能做 2–3 次</div></article>
+        <article class="rule-card"><span class="rule-num">03</span><h3>8 周区块 + 第 4 周减载</h3><p>第 1–3 周逐步加量；第 4 周组数减 40%，强度降 10%；第 5–7 周再累积；第 8 周减载并复盘。不要周周换主项。</p><div class="rule-tag">3 周累积 → 1 周减载 → 重复</div></article>
+        <article class="rule-card"><span class="rule-num">04</span><h3>有氧是工具，不是惩罚</h3><p>每周 2 次 20–30 分钟 Zone 2（能说话、不能唱歌），放在非力量日或力量后。步数 7–9k 就够，别用大量 HIIT 换恢复。</p><div class="rule-tag">2 × 20–30′ Zone 2 / 周</div></article>
+        <article class="rule-card"><span class="rule-num">05</span><h3>recomp 看 4 个指标</h3><p>每周同条件称重取周均、量腰围、记录主项次数、看睡眠。体重稳定或每周 −0.1–0.3 kg、腰围不涨、主项变强，就是成功。</p><div class="rule-tag">体重周均 · 腰围 · 主项 rep PR · 睡眠</div></article>
+        <article class="rule-card"><span class="rule-num">06</span><h3>疼痛规则</h3><p>关节刺痛、麻木、放射性疼痛：立刻停该动作，换无痛替代并找专业人员。肌肉酸胀可以练；疼痛不能靠“忍一忍”解决。</p><div class="rule-tag">无痛范围 · 不硬顶 · 及时评估</div></article>
+      </div>
+      <div class="nutrition-strip">
+        <div><span class="mini-label">RECOMP 起点</span><b>蛋白质 1.6–1.8 g/kg</b><p>先按 115–128 g / 天起步，正餐为主；复查尿蛋白 / 肌酐前不要自行加蛋白粉或肌酸剂量。</p></div>
+        <div><span class="mini-label">热量</span><b>接近维持，微调 200–300 kcal</b><p>腰围连续 2 周上涨就减一点；主项连续掉重量就加一点碳水。不要同时追求快速掉秤和快速增肌。</p></div>
+        <div><span class="mini-label">恢复</span><b>7–9 小时睡眠 + 24–48 小时间隔</b><p>同一天不叠加两次大重量硬拉；颈颌紧张时先降训练量，不靠咬牙完成。</p></div>
+      </div>
+    </section>
+
+    <section class="section decisions-section" id="decisions">
+      <div class="section-head">
+        <div><p class="eyebrow">DESIGN NOTES</p><h2>你提的 7 个问题，逐个回答</h2></div>
+        <p>结论先行：大方向我认可。下面这些是你原方案里需要“收紧”或“补一刀”的地方。</p>
+      </div>
+      <div class="decision-grid">
+        <details class="decision" open>
+          <summary><span class="q">01</span><b>推日只用器械推肩，不坐姿哑铃推肩，可以吗？</b><i></i></summary>
+          <div class="answer"><p><b>可以，而且更适合你现在的疲劳管理。</b>器械推肩把稳定交给座椅和轨迹，你能在卧推后仍然安全地上重量；坐姿哑铃推肩需要更多肩胛控制和核心稳定，疲劳时容易耸肩、肘外翻或腰椎代偿。</p><p><b>但要注意：</b>座椅调到把手与肩同高或略低，肘部在身体前侧 30–45°，不要横开到 90°；下放至耳朵附近即可，不要为了幅度塌腰。它练的是三角肌前束 / 中束、肱三头肌和上胸，不是“只练前束”。</p><p class="verdict">结论：保留器械推肩，放在卧推之后；不加坐姿哑铃推肩。</p></div>
+        </details>
+        <details class="decision">
+          <summary><span class="q">02</span><b>推日一个三头、拉日一个二头，够吗？只做器械牧师凳弯举行不行？</b><i></i></summary>
+          <div class="answer"><p><b>在 60 分钟限制下，一个三头 + 一个二头是合理下限，不是完整覆盖。</b>三头选“绳索过顶臂屈伸”，因为卧推和推肩已经大量刺激三头外侧头 / 内侧头，过顶动作能补长头，且对肘关节相对友好。</p><p><b>二头只用器械牧师凳弯举：够用，但不完整。</b>牧师凳让肘固定在身前，短头和肱肌刺激很好、作弊空间小；缺点是长头在肩伸展位被拉长的刺激较少，肱桡肌也几乎没练到。建议每 4–6 周把二头动作换成锤式弯举或斜托哑铃弯举，或在最后加 1–2 组锤式弯举。不要每周换，否则无法判断进步。</p><p class="verdict">结论：默认器械牧师凳弯举 3×8–12；每 4–6 周轮换一次，力量不下降为原则。</p></div>
+        </details>
+        <details class="decision">
+          <summary><span class="q">03</span><b>引体向上作为辅项，对握还是宽握？放在硬拉后会不会太累？</b><i></i></summary>
+          <div class="answer"><p><b>可以加，默认对握引体，宽握作为备选。</b>对握时肩关节更自然、肱肌 / 肱桡肌参与更多，对大多数人也更容易做出全程；宽握更偏背阔肌外侧和上背，但杠杆更长、肩外旋压力更大，适合无痛且能严格完成 6 次以上的人。</p><p><b>顺序：硬拉 → 引体 → 划船。</b>硬拉已经消耗握力、斜方肌和竖脊肌，所以引体只做 2–3 组、留 2 次余力，不做到力竭。握力不够就戴助力带或用辅助引体机；硬拉当天状态差，直接用高位下拉替代，不要把引体变成“甩上去”的动作。</p><p class="verdict">结论：对握 2–3×6–10，硬拉后做；宽握每周最多 2 组，且肩无痛才用。</p></div>
+        </details>
+        <details class="decision">
+          <summary><span class="q">04</span><b>蹲日不做腿弯举，可以吗？会不会漏掉后链？</b><i></i></summary>
+          <div class="answer"><p><b>可以不做，后链不会漏。</b>罗马尼亚硬拉覆盖腘绳肌和臀大肌，保加利亚分腿蹲覆盖单边臀腿，传统硬拉也有髋伸。腿弯举不是“人人都伤膝”的动作，很多人做它反而对膝友好；但既然你不喜欢，就没必要硬塞。</p><p><b>替代逻辑：</b>蹲日主项练股四头肌和臀；RDL 练腘绳肌 / 臀；分腿蹲练单边稳定和内收肌；腿屈伸补股四头肌。真正要避免的是膝盖在疲劳下被迫做大幅度、失控的屈伸，而不是某个动作名字。</p><p class="verdict">结论：不排腿弯举；用 RDL + 分腿蹲 + 腿屈伸覆盖。膝痛时先减幅度和负荷。</p></div>
+        </details>
+        <details class="decision">
+          <summary><span class="q">05</span><b>男性为了性健康，应该加内收肌动作吗？</b><i></i></summary>
+          <div class="answer"><p><b>可以加，但别把它当成“性功能特效动作”。</b>内收肌群负责髋内收、骨盆和股骨的稳定，和深蹲、变向、单腿支撑质量密切相关；强化它对髋部稳定、腹股沟健康和盆底周围力学是合理的。现有证据更支持“规律力量训练 + 有氧 + 骨盆底肌训练 + 睡眠 / 体重管理”对性健康的综合作用，而不是单独练内收肌就能提升睾酮或勃起功能。</p><p><b>安排：</b>内收肌器械 3×12–15，哥本哈根侧桥 2×20–30 秒 / 侧。不要用过大重量夹腿；有腹股沟疼痛、疝气或盆底症状时先评估。若你指的是勃起功能或性欲问题，优先和泌尿科 / 男科讨论，不要靠补剂或单个动作自我诊断。</p><p class="verdict">结论：加，作为髋 / 骨盆稳定和功能训练的一部分；预期放在“动作质量、心肺、睡眠”，不要神化。</p></div>
+        </details>
+        <details class="decision">
+          <summary><span class="q">06</span><b>实力推（站姿杠铃推举）是不是没地方放了？</b><i></i></summary>
+          <div class="answer"><p><b>你说得对：在“卧推 + 器械推肩”已经占满推日的前提下，实力推没有自然位置。</b>它也是推类，会重复刺激前束和三头，还会额外消耗核心与腰椎稳定；硬塞进推日会让 60 分钟变得很挤，塞进蹲日又会影响深蹲的轴向稳定。</p><p><b>三个选项：</b>① 默认不做，器械推肩就是你的垂直推；② 想要 overhead 力量，用 4–6 周区块把器械推肩换成站姿实力推，不要两个都做；③ 只作为技术练习，放在推日最前面 2×5 @RIR 3，但这一天不要再加器械推肩。对增肌来说，它不是必需项。</p><p class="verdict">结论：不硬塞。默认器械推肩；实力推作为 4–6 周轮换，而不是每周额外加课。</p></div>
+        </details>
+        <details class="decision">
+          <summary><span class="q">07</span><b>有硬拉和器械划船了，杠铃划船还需要吗？</b><i></i></summary>
+          <div class="answer"><p><b>不需要作为固定动作。</b>硬拉对背阔肌主要是等长稳定，不能替代划船的全幅度拉；但杠铃划船会把竖脊肌、握力、髋伸肌再疲劳一遍，和你周四刚做完的硬拉恢复需求重叠。胸支撑器械划船或单臂绳索划船能用更低的系统疲劳换更多背部训练量，性价比更高。</p><p><b>如果你喜欢杠铃划船：</b>把它放在下拉菜单里，作为 4 周一次的替换，放在硬拉之后、3×6–8、RIR 2；不要和硬拉同一天都冲重量。动作上保持躯干角度固定，不靠起身甩重量。</p><p class="verdict">结论：默认胸支撑器械划船 / 单臂绳索划船；杠铃划船是备选，不是必修。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section safety-section" id="safety">
+      <div class="safety-card">
+        <div class="safety-icon">!</div>
+        <div>
+          <p class="eyebrow">BOUNDARIES</p>
+          <h2>先确认这几件事，再把重量加上去</h2>
+          <p>这份计划是训练安排，不是医疗建议。按你的画像，开始高强度硬拉 / 深蹲前，优先把 <b>尿蛋白与肌酐复查</b>、<b>腰椎 / 髋部 DXA</b>、<b>颈颌关节与耳鸣评估</b> 的结论补齐；如果已经确诊骨质疏松、肾功能异常或运动中出现胸痛 / 晕厥 / 异常心悸，先让医生或康复师看过再执行。</p>
+          <p>训练中避免长时间憋气（Valsalva）和 1RM 极限试举；用“发力时呼气”的节奏，RIR 至少留 1–2 次。颈部保持中立，不咬牙、不耸肩；耳鸣或颞下颌疼痛加重时，先降训练量并复诊。</p>
+          <p class="safety-small">页面不包含姓名、联系方式、化验值或诊断信息；如果要公开分享，建议保持这种脱敏版本。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand"><span class="brand-mark">PPL</span><div><b>推 / 拉 / 蹲 · 60 MIN</b><span>hypertrophy × function · 2026-11</span></div></div>
+    <p>默认 3 练 / 周 · 8 周一个区块 · 动作替代每 4–6 周轮换，不是每周乱换。</p>
+    <a href="#top">回到顶部 ↑</a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">需要启用 JavaScript 才能看到动作卡和循环演示。</div></noscript>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
