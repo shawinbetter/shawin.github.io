@@ -61,11 +61,11 @@
         gif: "machine-press", fixed: "固定：不做坐姿哑铃推肩"
       },
       {
-        slot: "chest-accessory", name: "绳索夹胸", en: "Cable Chest Fly",
+        slot: "chest-accessory", name: "蝴蝶机夹胸", en: "Pec Deck",
         role: "辅项", badge: "aux", sets: "2", reps: "12–15", rir: "1", rest: "90″",
         primary: ["chest", "frontDelt"], secondary: ["serratus"],
-        cue: "肘微屈并固定，用上臂把胸夹在一起；在胸前停 1 秒，不要让肩膀前顶。",
-        gif: "fly", altLabel: "夹胸 / 双杠",
+        cue: "胸骨贴靠垫，肘微屈；用胸把两侧把手合到一起，回落时保持张力。不要耸肩或让肩膀前顶。",
+        gif: "pec-deck", altLabel: "蝴蝶机 / 双杠",
         alts: [
           alt("dip", "双杠臂屈伸", "Chest Dip", "dip", ["chest", "triceps", "frontDelt"], ["serratus", "rotator"], "身体略前倾，肘向后而不是向外；下放到肩部舒适的位置，不要追求过深。", { sets: "2", reps: "6–10", rir: "2", rest: "90″" })
         ]
@@ -130,9 +130,7 @@
         cue: "胸口贴垫，肘向后拉，肩胛先收再拉；不要用腰把重量甩起来。拉到肘超过躯干即可。",
         gif: "row",
         alts: [
-          alt("single-arm-row", "单臂绳索划船", "Single-Arm Cable Row", "row-single", ["lats", "rhomboids", "traps"], ["rearDelt", "biceps", "obliques", "forearm"], "身体稳定，不要跟着绳索转；肘向髋部拉，顶端停 1 秒。", { sets: "3", reps: "10–12 / 侧" }),
-          alt("barbell-row", "杠铃划船", "Barbell Row", "row-barbell", ["lats", "rhomboids", "traps"], ["rearDelt", "biceps", "erectors", "forearm"], "髋铰链固定躯干角度，杠拉向肚脐；不要靠起身甩重量。硬拉后做它要保守。", { sets: "3", reps: "6–8" }),
-          alt("seated-row", "坐姿绳索划船", "Seated Cable Row", "row-seated", ["lats", "rhomboids", "traps"], ["rearDelt", "biceps", "forearm"], "膝盖微屈，躯干基本不动；先收肩胛，再把肘拉向后。", { sets: "3", reps: "10–12" })
+          alt("single-arm-row", "单臂绳索划船", "Single-Arm Cable Row", "row-single", ["lats", "rhomboids", "traps"], ["rearDelt", "biceps", "obliques", "forearm"], "身体稳定，不要跟着绳索转；肘向髋部拉，顶端停 1 秒。", { sets: "3", reps: "10–12 / 侧" })
         ]
       },
       {
@@ -143,7 +141,7 @@
         gif: "reardelt",
         alts: [
           alt("face-pull", "绳索面拉", "Cable Face Pull", "facepull", ["rearDelt", "rhomboids"], ["traps", "rotator"], "绳索拉到眉心高度，肘向外打开；不要把重量拉向胸口，也不要耸肩。", { sets: "2", reps: "12–15" }),
-          alt("bent-over-fly", "俯身哑铃飞鸟", "Bent-Over Dumbbell Fly", "reardelt-dumbbell", ["rearDelt", "rhomboids"], ["traps", "erectors"], "髋铰链俯身，背部平直；肘微屈，用肩后侧把哑铃向两侧打开。", { sets: "2", reps: "12–15" })
+          alt("bent-over-fly", "反向飞鸟", "Reverse Fly", "reardelt-dumbbell", ["rearDelt", "rhomboids"], ["traps", "erectors"], "髋铰链俯身，背部平直；肘微屈，用肩后侧把哑铃向两侧打开。", { sets: "2", reps: "12–15" })
         ]
       },
       {
@@ -153,9 +151,7 @@
         cue: "肘固定在垫上，下放到接近伸直但不锁死；不要用肩把重量抬起来。顶端停 1 秒，离心慢放。",
         gif: "preacher",
         alts: [
-          alt("hammer-curl", "锤式弯举", "Hammer Curl", "hammer", ["brachialis", "biceps", "forearm"], ["brachioradialis"], "拇指朝上，肘固定在身侧；不要用肩摆动。补肱肌和肱桡肌。", { sets: "3", reps: "10–12" }),
-          alt("incline-curl", "斜托哑铃弯举", "Incline Dumbbell Curl", "incline-curl", ["biceps", "brachialis"], ["forearm"], "肩向后打开，让二头长头处于拉伸位；肘不要向前跑，重量轻一点。", { sets: "3", reps: "10–12" }),
-          alt("reverse-curl", "反握 EZ 杆弯举", "Reverse EZ-Bar Curl", "reverse-curl", ["brachialis", "forearm", "biceps"], ["brachioradialis"], "掌心向下握杠，手腕保持中立；重量比正常弯举轻，感受前臂和肱肌。", { sets: "2", reps: "10–12" })
+          alt("hammer-curl", "锤式弯举", "Hammer Curl", "hammer", ["brachialis", "biceps", "forearm"], ["brachioradialis"], "拇指朝上，肘固定在身侧；不要用肩摆动。补肱肌和肱桡肌。", { sets: "3", reps: "10–12" })
         ]
       },
       {
