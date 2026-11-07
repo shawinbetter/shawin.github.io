@@ -364,6 +364,18 @@ main { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
 .section-head h2 { margin-top: 8px; font-size: clamp(28px, 4.1vw, 46px); line-height: 1.08; letter-spacing: -0.045em; }
 .section-head > p { max-width: 430px; color: var(--muted); font-size: 12.5px; line-height: 1.8; text-align: right; }
+
+.lift-note { margin-top: 6px; color: var(--lime); font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.02em; }
+.program-table-wrap { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.program-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 11.5px; }
+.program-table th { padding: 11px 13px; text-align: left; color: var(--muted-2); font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.025); }
+.program-table td { padding: 11px 13px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; line-height: 1.55; }
+.program-table tr:last-child td { border-bottom: 0; }
+.program-table td:first-child { color: var(--lime); font-family: var(--mono); font-size: 10px; white-space: nowrap; }
+.program-table tr:hover td { background: rgba(255,255,255,.018); }
+.program-note { margin-top: 12px; padding: 12px 14px; border-left: 2px solid var(--lime); border-radius: 0 10px 10px 0; background: rgba(201,245,106,.045); color: var(--muted); font-size: 10.5px; line-height: 1.75; }
+.program-note b { color: var(--ink); }
+
 .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 9px; margin-top: 20px; }
 .week-day { min-height: 164px; padding: 13px 12px 11px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255, 255, 255, 0.022); display: flex; flex-direction: column; transition: 0.18s ease; }
 .week-day:hover { transform: translateY(-2px); border-color: var(--line-strong); }

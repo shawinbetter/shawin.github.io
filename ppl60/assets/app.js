@@ -41,10 +41,10 @@
     push: [
       {
         slot: "bench", name: "平板杠铃卧推", en: "Barbell Bench Press",
-        role: "主项", badge: "main", sets: "4", reps: "5–8", rir: "2", rest: "3′",
+        role: "主项", badge: "main", sets: "4", reps: "8–12", rir: "2", rest: "3′",
         primary: ["chest", "frontDelt", "triceps"], secondary: ["serratus", "rotator"],
         cue: "肩胛后缩下沉，脚踩实，臀不离凳；杠铃下放到胸骨下缘，前臂接近垂直。推起时呼气，不憋气顶腰。",
-        gif: "bench", fixed: "主项固定 · 4–6 周不换"
+        gif: "bench", fixed: "容量 / 力量按 8 周表切换"
       },
       {
         slot: "incline-press", name: "哑铃上斜推", en: "Incline Dumbbell Press",
@@ -62,41 +62,41 @@
       },
       {
         slot: "chest-accessory", name: "蝴蝶机夹胸", en: "Pec Deck",
-        role: "辅项", badge: "aux", sets: "2", reps: "12–15", rir: "1", rest: "90″",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1", rest: "90″",
         primary: ["chest", "frontDelt"], secondary: ["serratus"],
         cue: "胸骨贴靠垫，肘微屈；用胸把两侧把手合到一起，回落时保持张力。不要耸肩或让肩膀前顶。",
         gif: "pec-deck", altLabel: "蝴蝶机 / 双杠",
         alts: [
-          alt("dip", "双杠臂屈伸", "Chest Dip", "dip", ["chest", "triceps", "frontDelt"], ["serratus", "rotator"], "身体略前倾，肘向后而不是向外；下放到肩部舒适的位置，不要追求过深。", { sets: "2", reps: "6–10", rir: "2", rest: "90″" })
+          alt("dip", "双杠臂屈伸", "Chest Dip", "dip", ["chest", "triceps", "frontDelt"], ["serratus", "rotator"], "身体略前倾，肘向后而不是向外；下放到肩部舒适的位置，不要追求过深。", { sets: "2", reps: "8–12", rir: "2", rest: "90″" })
         ]
       },
       {
         slot: "lateral", name: "哑铃侧平举", en: "Dumbbell Lateral Raise",
-        role: "辅项", badge: "aux", sets: "3", reps: "15–20", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
         primary: ["sideDelt"], secondary: ["traps", "rotator"],
         cue: "肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。重量宁轻勿甩，脖子放松。",
         gif: "lateral"
       },
       {
         slot: "triceps", name: "绳索过顶臂屈伸", en: "Cable Overhead Triceps Extension",
-        role: "辅项", badge: "aux", sets: "2", reps: "10–15", rir: "1–2", rest: "60–90″",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1–2", rest: "60–90″",
         primary: ["triceps"], secondary: ["frontDelt", "forearm"],
         cue: "背对低位龙门架，绳索在头后；肘尖朝前、不要外张，下放到三头有拉伸，再伸肘。肋骨不要外翻。",
         gif: "overhead-ext"
       },
       {
         slot: "abs-push", name: "斜凳反向卷腹", en: "Decline Reverse Crunch",
-        role: "核心", badge: "core", sets: "2", reps: "10–15", rir: "1–2", rest: "45″",
+        role: "核心", badge: "core", sets: "2", reps: "8–12", rir: "1–2", rest: "45″",
         primary: ["abs", "hipFlexors"], secondary: ["obliques"],
         cue: "斜凳调到 15–20°，躺下握住把手；先卷骨盆，再把膝盖卷向胸口。腰椎贴垫，不要用惯性甩腿。",
         gif: "decline-reverse-crunch", altLabel: "卷腹变式",
         alts: [
-          alt("decline-crunch", "斜凳卷腹", "Decline Crunch", "decline-crunch", ["abs", "obliques"], ["hipFlexors"], "脚固定，胸骨卷向骨盆；不要用手拉头，下放时保持腹部张力。", { sets: "2", reps: "12–15" })
+          alt("decline-crunch", "斜凳卷腹", "Decline Crunch", "decline-crunch", ["abs", "obliques"], ["hipFlexors"], "脚固定，胸骨卷向骨盆；不要用手拉头，下放时保持腹部张力。", { sets: "2", reps: "8–12" })
         ]
       },
       {
         slot: "pallof", name: "帕洛夫推", en: "Pallof Press",
-        role: "功能", badge: "func", sets: "2", reps: "10 / 侧", rir: "—", rest: "45″",
+        role: "功能", badge: "func", sets: "2", reps: "8–12 / 侧", rir: "—", rest: "45″",
         primary: ["obliques", "abs"], secondary: ["glutes", "ql"],
         cue: "侧对绳索，双脚与髋同宽；双手从胸前推出，身体不被拉转。推出时呼气，停 2 秒再回。",
         gif: "pallof"
@@ -109,17 +109,17 @@
         role: "主项", badge: "main", sets: "3", reps: "3–5", rir: "2", rest: "3–4′",
         primary: ["glutes", "hamstrings", "erectors"], secondary: ["lats", "traps", "forearm", "abs", "adductors"],
         cue: "杠贴小腿，腋窝夹紧，吸气后撑住腹部；脚推地、髋膝同时伸，杠走直线。锁定时站直即可，不要后仰。正式组用助力带，避免混合握。",
-        gif: "deadlift", fixed: "主项固定 · 每周最多 1 次大重量"
+        gif: "deadlift", fixed: "力量组 · 不做 8–12 容量"
       },
       {
         slot: "pullup", name: "对握引体向上", en: "Neutral-Grip Pull-Up",
-        role: "辅项", badge: "aux", sets: "3", reps: "6–10", rir: "2", rest: "2′",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "2", rest: "2′",
         primary: ["lats", "biceps", "brachialis"], secondary: ["rhomboids", "traps", "forearm", "abs"],
-        cue: "先沉肩，再把肘拉向肋骨；下巴过杠即可，不要甩腿。握力不够就戴助力带或用辅助机；做不满 6 次就换高位下拉。",
+        cue: "先沉肩，再把肘拉向肋骨；下巴过杠即可，不要甩腿。握力不够就戴助力带或用辅助机；做不满 8 次就换高位下拉。",
         gif: "pullup",
         alts: [
-          alt("wide-pullup", "宽握引体向上", "Wide-Grip Pull-Up", "pullup-wide", ["lats", "biceps"], ["rhomboids", "traps", "forearm"], "握距比肩宽一掌左右，先沉肩再拉；肩前侧不适就换回对握。", { sets: "2", reps: "5–8" }),
-          alt("assisted-pullup", "辅助引体向上", "Assisted Pull-Up", "pullup-assisted", ["lats", "biceps", "brachialis"], ["rhomboids", "forearm"], "用辅助机或弹力带，保证 6–10 次全程；不要为了次数把下巴伸出去。", { sets: "3", reps: "6–10" }),
+          alt("wide-pullup", "宽握引体向上", "Wide-Grip Pull-Up", "pullup-wide", ["lats", "biceps"], ["rhomboids", "traps", "forearm"], "握距比肩宽一掌左右，先沉肩再拉；肩前侧不适就换回对握。", { sets: "2", reps: "8–12" }),
+          alt("assisted-pullup", "辅助引体向上", "Assisted Pull-Up", "pullup-assisted", ["lats", "biceps", "brachialis"], ["rhomboids", "forearm"], "用辅助机或弹力带，保证 8–12 次全程；不要为了次数把下巴伸出去。", { sets: "3", reps: "8–12" }),
           alt("lat-pulldown", "高位下拉", "Lat Pulldown", "pulldown", ["lats", "biceps", "brachialis"], ["rhomboids", "traps", "forearm"], "胸骨微抬，先沉肩胛再拉；把手拉到锁骨附近，不要后仰甩重量。", { sets: "3", reps: "8–12" })
         ]
       },
@@ -130,18 +130,18 @@
         cue: "胸口贴垫，肘向后拉，肩胛先收再拉；不要用腰把重量甩起来。拉到肘超过躯干即可。",
         gif: "row",
         alts: [
-          alt("single-arm-row", "单臂绳索划船", "Single-Arm Cable Row", "row-single", ["lats", "rhomboids", "traps"], ["rearDelt", "biceps", "obliques", "forearm"], "身体稳定，不要跟着绳索转；肘向髋部拉，顶端停 1 秒。", { sets: "3", reps: "10–12 / 侧" })
+          alt("single-arm-row", "单臂绳索划船", "Single-Arm Cable Row", "row-single", ["lats", "rhomboids", "traps"], ["rearDelt", "biceps", "obliques", "forearm"], "身体稳定，不要跟着绳索转；肘向髋部拉，顶端停 1 秒。", { sets: "3", reps: "8–12 / 侧" })
         ]
       },
       {
         slot: "rear-delt", name: "反向蝴蝶机", en: "Reverse Pec Deck",
-        role: "辅项", badge: "aux", sets: "2", reps: "12–20", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1", rest: "60″",
         primary: ["rearDelt", "rhomboids"], secondary: ["traps", "rotator"],
         cue: "手臂微屈，肘带动向两侧打开；不要耸肩，不要用斜方肌把重量提起来。",
         gif: "reardelt",
         alts: [
-          alt("face-pull", "绳索面拉", "Cable Face Pull", "facepull", ["rearDelt", "rhomboids"], ["traps", "rotator"], "绳索拉到眉心高度，肘向外打开；不要把重量拉向胸口，也不要耸肩。", { sets: "2", reps: "12–15" }),
-          alt("bent-over-fly", "反向飞鸟", "Reverse Fly", "reardelt-dumbbell", ["rearDelt", "rhomboids"], ["traps", "erectors"], "髋铰链俯身，背部平直；肘微屈，用肩后侧把哑铃向两侧打开。", { sets: "2", reps: "12–15" })
+          alt("face-pull", "绳索面拉", "Cable Face Pull", "facepull", ["rearDelt", "rhomboids"], ["traps", "rotator"], "绳索拉到眉心高度，肘向外打开；不要把重量拉向胸口，也不要耸肩。", { sets: "2", reps: "8–12" }),
+          alt("bent-over-fly", "反向飞鸟", "Reverse Fly", "reardelt-dumbbell", ["rearDelt", "rhomboids"], ["traps", "erectors"], "髋铰链俯身，背部平直；肘微屈，用肩后侧把哑铃向两侧打开。", { sets: "2", reps: "8–12" })
         ]
       },
       {
@@ -151,17 +151,17 @@
         cue: "肘固定在垫上，下放到接近伸直但不锁死；不要用肩把重量抬起来。顶端停 1 秒，离心慢放。",
         gif: "preacher",
         alts: [
-          alt("hammer-curl", "锤式弯举", "Hammer Curl", "hammer", ["brachialis", "biceps", "forearm"], ["brachioradialis"], "拇指朝上，肘固定在身侧；不要用肩摆动。补肱肌和肱桡肌。", { sets: "3", reps: "10–12" })
+          alt("hammer-curl", "锤式弯举", "Hammer Curl", "hammer", ["brachialis", "biceps", "forearm"], ["brachioradialis"], "拇指朝上，肘固定在身侧；不要用肩摆动。补肱肌和肱桡肌。", { sets: "3", reps: "8–12" })
         ]
       },
       {
         slot: "abs-pull", name: "斜凳卷腹", en: "Decline Crunch",
-        role: "核心", badge: "core", sets: "2", reps: "12–15", rir: "1–2", rest: "45″",
+        role: "核心", badge: "core", sets: "2", reps: "8–12", rir: "1–2", rest: "45″",
         primary: ["abs", "obliques"], secondary: ["hipFlexors"],
         cue: "斜凳调到 15–20°，脚固定；把胸骨卷向骨盆，不是用手拉头。下放时保持腹部张力。",
         gif: "decline-crunch", altLabel: "卷腹变式",
         alts: [
-          alt("decline-reverse-crunch", "斜凳反向卷腹", "Decline Reverse Crunch", "decline-reverse-crunch", ["abs", "hipFlexors"], ["obliques"], "躺下握住把手，先卷骨盆，再把膝盖卷向胸口；腰椎贴垫，不要甩腿。", { sets: "2", reps: "10–15" })
+          alt("decline-reverse-crunch", "斜凳反向卷腹", "Decline Reverse Crunch", "decline-reverse-crunch", ["abs", "hipFlexors"], ["obliques"], "躺下握住把手，先卷骨盆，再把膝盖卷向胸口；腰椎贴垫，不要甩腿。", { sets: "2", reps: "8–12" })
         ]
       },
       {
@@ -186,28 +186,28 @@
       },
       {
         slot: "split-squat", name: "保加利亚分腿蹲", en: "Bulgarian Split Squat",
-        role: "辅项", badge: "func", sets: "3", reps: "8–10 / 腿", rir: "2", rest: "90″",
+        role: "辅项", badge: "func", sets: "3", reps: "8–12 / 腿", rir: "2", rest: "90″",
         primary: ["quads", "glutes", "adductors"], secondary: ["hamstrings", "obliques", "hipFlexors"],
         cue: "前脚踩稳，后脚背搭凳；垂直下蹲，前膝跟脚尖同向。图中是分腿蹲，后脚垫高即保加利亚。先徒手，再加哑铃。",
         gif: "split-squat"
       },
       {
         slot: "leg-curl", name: "俯卧腿弯举", en: "Lying Leg Curl",
-        role: "辅项", badge: "aux", sets: "3", reps: "10–15", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
         primary: ["hamstrings"], secondary: ["calves", "glutes"],
         cue: "髋部贴住垫子，膝轴对准器械转轴；用腘绳肌把小腿卷向臀部，慢回。重量轻一点，膝痛就停。",
         gif: "leg-curl"
       },
       {
         slot: "adductor", name: "内收肌器械", en: "Hip Adductor Machine",
-        role: "辅项", badge: "aux", sets: "3", reps: "12–15", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
         primary: ["adductors"], secondary: ["glutes", "abs"],
         cue: "坐稳，骨盆中立；用大腿内侧夹合，慢回。不要用过大重量，避免腹股沟不适。",
         gif: "adductor"
       },
       {
         slot: "calf", name: "站姿提踵", en: "Standing Calf Raise",
-        role: "辅项", badge: "aux", sets: "3", reps: "10–15", rir: "1", rest: "45–60″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "45–60″",
         primary: ["calves"], secondary: ["hamstrings", "glutes"],
         cue: "脚尖朝前，膝盖微屈固定；顶峰停 1 秒，下放到脚跟低于台阶。不要弹震。",
         gif: "calf"
