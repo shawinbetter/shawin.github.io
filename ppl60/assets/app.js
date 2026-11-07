@@ -100,11 +100,11 @@
         ]
       },
       {
-        slot: "push-functional", name: "半跪姿绳索推胸", en: "Half-Kneeling Cable Chest Press",
-        role: "功能", badge: "func", sets: "2", reps: "8–12 / 侧", rir: "—", rest: "60″",
-        primary: ["chest", "frontDelt", "obliques"], secondary: ["triceps", "serratus", "glutes"],
-        cue: "半跪姿，绳索在胸侧；单臂向前推，身体不转，肋骨叠在骨盆上。推到底停 1 秒，慢回。下一次推日换成地雷推肩。",
-        gif: "cable-press", altLabel: "胸 / 肩交替",
+        slot: "push-functional", name: "站姿绳索木劈", en: "Standing Cable Wood Chop",
+        role: "功能", badge: "func", sets: "2", reps: "8–10 / 侧", rir: "—", rest: "60″",
+        primary: ["obliques", "abs", "erectors"], secondary: ["serratus", "glutes", "rotator"],
+        cue: "侧对绳索，双手从高处向对侧髋部斜劈；胸椎旋转，骨盆保持稳定。重量轻，8–10 次/侧，慢回，不要用腰甩。下一次推日换成地雷推肩。",
+        gif: "wood-chop", altLabel: "胸椎 / 肩交替",
         alts: [
           alt("landmine-press", "单臂地雷管推肩", "One-Arm Landmine Press", "landmine-press", ["frontDelt", "sideDelt", "triceps"], ["obliques", "serratus", "glutes"], "站姿或半跪姿，单臂把杠铃向前上方推；身体不转、不塌腰。肩膀不适就减小幅度。", { sets: "2", reps: "8–12 / 侧", rest: "60″" })
         ]
