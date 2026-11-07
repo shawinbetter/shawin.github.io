@@ -44,7 +44,8 @@
         role: "主项", badge: "main", sets: "4", reps: "8–12", rir: "2", rest: "3′",
         primary: ["chest", "frontDelt", "triceps"], secondary: ["serratus", "rotator"],
         cue: "肩胛后缩下沉，脚踩实，臀不离凳；杠铃下放到胸骨下缘，前臂接近垂直。推起时呼气，不憋气顶腰。",
-        gif: "bench", fixed: "容量 / 力量按 8 周表切换"
+        gif: "bench",
+        phase: `<p><b>W1–2</b> 4×8–12 @RIR 2</p><p><b>W3</b> 5×5 → 3×3 → 1×1 @92–95% → 2×8–12</p><p><b>W4</b> 减载 3×8 @RIR 3</p><p><b>W5–6</b> 4×8–12</p><p><b>W7</b> 5/3/1 → 1×1 @95–100% → 2×8–12</p><p><b>W8</b> 减载 3×8</p><p class="phase-note">第 3 周顶单不是真 1RM；第 7 周有保护者再冲，没保护停在 92–95%。力量周上斜 / 夹胸 / 三头各减 1 组。</p>`,
       },
       {
         slot: "incline-press", name: "哑铃上斜推", en: "Incline Dumbbell Press",
@@ -109,7 +110,8 @@
         role: "主项", badge: "main", sets: "3", reps: "3–5", rir: "2", rest: "3–4′",
         primary: ["glutes", "hamstrings", "erectors"], secondary: ["lats", "traps", "forearm", "abs", "adductors"],
         cue: "杠贴小腿，腋窝夹紧，吸气后撑住腹部；脚推地、髋膝同时伸，杠走直线。锁定时站直即可，不要后仰。正式组用助力带，避免混合握。",
-        gif: "deadlift", fixed: "力量组 · 不做 8–12 容量"
+        gif: "deadlift",
+        phase: `<p><b>W1–3</b> 3×3–5 @RIR 2</p><p><b>W4</b> 减载 2×3</p><p><b>W5–7</b> 3×3–5</p><p><b>W8</b> 减载 2×3</p><p class="phase-note">只做力量组，不做 8–12 容量组。</p>`,
       },
       {
         slot: "pullup", name: "对握引体向上", en: "Neutral-Grip Pull-Up",
@@ -180,8 +182,9 @@
         primary: ["quads", "glutes", "adductors"], secondary: ["erectors", "abs", "hamstrings", "calves"],
         cue: "脚掌三点压地，膝盖跟脚尖同向；下蹲到能保持躯干刚性的深度。起身时呼气，不要憋气顶。杠位以肩背舒适为准。",
         gif: "squat", altLabel: "主项区块",
+        phase: `<p><b>W1–3</b> 4×5–8 @RIR 2</p><p><b>W4</b> 减载 2×5</p><p><b>W5–7</b> 4×5–8</p><p><b>W8</b> 减载 2×5</p>`,
         alts: [
-          alt("zercher", "泽奇深蹲", "Zercher Squat", "zercher", ["quads", "glutes", "adductors"], ["erectors", "abs", "biceps", "traps"], "杠放在肘窝，垫毛巾；肘抬高、胸骨向上，先屈髋再屈膝。重量比背蹲轻，别硬追。", { sets: "3", reps: "6–8", rest: "3′" })
+          alt("zercher", "泽奇深蹲", "Zercher Squat", "zercher", ["quads", "glutes", "adductors"], ["erectors", "abs", "biceps", "traps"], "杠放在肘窝，垫毛巾；肘抬高、胸骨向上，先屈髋再屈膝。重量比背蹲轻，别硬追。", { sets: "3", reps: "6–8", rest: "3′", phase: `<p><b>W1–3 / 5–7</b> 3×6–8</p><p><b>W4 / 8</b> 2×6–8</p>` })
         ]
       },
       {
@@ -328,6 +331,7 @@
             </div>
             <div class="muscle-chips">${chips(ex)}</div>
             <p class="cue">${ex.cue}</p>
+            ${ex.phase ? `<details class="phase"><summary>8 周安排</summary><div class="phase-list">${ex.phase}</div></details>` : ""}
             ${optionsHTML(base, st)}
           </div>
         </div>
