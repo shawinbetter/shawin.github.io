@@ -1,5 +1,7 @@
 > **PPL 60 训练计划**：[推 / 拉 / 蹲 · 60 分钟增肌 × 功能](ppl60/)
 
+> **UL 2 女性上/下二分化**：[26F · 163 cm · 53 kg · 增肌 × 减脂 × 功能](upperlower/)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/shawinbetter/shawin.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
