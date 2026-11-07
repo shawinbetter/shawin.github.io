@@ -201,7 +201,10 @@
         role: "辅项", badge: "func", sets: "4", reps: "8–12 / 腿", rir: "2", rest: "90″",
         primary: ["quads", "glutes", "adductors"], secondary: ["hamstrings", "obliques", "hipFlexors"],
         cue: "前脚踩稳，后脚背搭凳；垂直下蹲，前膝跟脚尖同向。图中是分腿蹲，后脚垫高即保加利亚。先徒手，再加哑铃。",
-        gif: "split-squat"
+        gif: "split-squat", altLabel: "分腿 / 箭步",
+        alts: [
+          alt("dumbbell-lunge", "哑铃箭步蹲", "Dumbbell Lunge", "dumbbell-lunge", ["quads", "glutes", "adductors"], ["hamstrings", "obliques", "calves"], "前后脚分开，垂直下沉；前膝跟脚尖同向，后膝轻触地。不要用后脚蹬地起身。", { sets: "4", reps: "8–12 / 腿", rest: "90″" })
+        ]
       },
       {
         slot: "leg-curl", name: "俯卧腿弯举", en: "Lying Leg Curl",
