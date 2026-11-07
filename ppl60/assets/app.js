@@ -91,7 +91,7 @@
       },
       {
         slot: "abs-push", name: "斜凳反向卷腹", en: "Decline Reverse Crunch",
-        role: "核心", badge: "core", sets: "2", reps: "8–12", rir: "1–2", rest: "45″",
+        role: "核心", badge: "core", last: true, sets: "2", reps: "8–12", rir: "1–2", rest: "45″",
         primary: ["abs", "hipFlexors"], secondary: ["obliques"],
         cue: "斜凳调到 15–20°，躺下握住把手；先卷骨盆，再把膝盖卷向胸口。腰椎贴垫，不要用惯性甩腿。",
         gif: "decline-reverse-crunch", altLabel: "卷腹变式",
@@ -100,11 +100,14 @@
         ]
       },
       {
-        slot: "pallof", name: "帕洛夫推", en: "Pallof Press",
-        role: "功能", badge: "func", sets: "2", reps: "8–12 / 侧", rir: "—", rest: "45″",
-        primary: ["obliques", "abs"], secondary: ["glutes", "ql"],
-        cue: "侧对绳索，双脚与髋同宽；双手从胸前推出，身体不被拉转。推出时呼气，停 2 秒再回。",
-        gif: "pallof"
+        slot: "push-functional", name: "半跪姿绳索推胸", en: "Half-Kneeling Cable Chest Press",
+        role: "功能", badge: "func", sets: "2", reps: "8–12 / 侧", rir: "—", rest: "60″",
+        primary: ["chest", "frontDelt", "obliques"], secondary: ["triceps", "serratus", "glutes"],
+        cue: "半跪姿，绳索在胸侧；单臂向前推，身体不转，肋骨叠在骨盆上。推到底停 1 秒，慢回。下一次推日换成地雷推肩。",
+        gif: "cable-press", altLabel: "胸 / 肩交替",
+        alts: [
+          alt("landmine-press", "单臂地雷管推肩", "One-Arm Landmine Press", "landmine-press", ["frontDelt", "sideDelt", "triceps"], ["obliques", "serratus", "glutes"], "站姿或半跪姿，单臂把杠铃向前上方推；身体不转、不塌腰。肩膀不适就减小幅度。", { sets: "2", reps: "8–12 / 侧", rest: "60″" })
+        ]
       }
     ],
 
@@ -163,7 +166,7 @@
       },
       {
         slot: "abs-pull", name: "斜凳卷腹", en: "Decline Crunch",
-        role: "核心", badge: "core", sets: "3", reps: "8–12", rir: "1–2", rest: "45″",
+        role: "核心", badge: "core", last: true, sets: "3", reps: "8–12", rir: "1–2", rest: "45″",
         primary: ["abs", "obliques"], secondary: ["hipFlexors"],
         cue: "斜凳调到 15–20°，脚固定；把胸骨卷向骨盆，不是用手拉头。下放时保持腹部张力。",
         gif: "decline-crunch", altLabel: "卷腹变式",
@@ -382,12 +385,13 @@
     const list = document.querySelector(`[data-list="${day}"]`);
     const panel = document.getElementById(`day-${day}`);
     if (!list || !panel) return;
-    list.innerHTML = EXERCISES[day].map((base, index) => {
+    const ordered = EXERCISES[day].slice().sort((a, b) => (a.last ? 1 : 0) - (b.last ? 1 : 0));
+    list.innerHTML = ordered.map((base, index) => {
       const { ex, st } = resolveExercise(day, base.slot);
       return cardHTML(day, base, ex, st, index);
     }).join("");
 
-    EXERCISES[day].forEach((base) => {
+    ordered.forEach((base) => {
       const card = list.querySelector(`[data-slot="${base.slot}"]`);
       if (!card) return;
       const { ex } = resolveExercise(day, base.slot);

@@ -20,7 +20,7 @@ python3 -m http.server 8788
 
 ## 动作图来源
 
-动作 GIF 由 [Free Exercise DB](https://github.com/yuhonas/free-exercise-db) 的 Public Domain（Unlicense）动作照片制作，每张 GIF 为 2 帧循环，仅用于动作示意。Y 举 GIF 使用 [Bryllim Workout Guide](https://bryllim.github.io/workout-guide/exercises/prone-y-raise/) 的线稿（CC BY-SA 4.0），对应 GIF 以同许可提供。
+动作 GIF 由 [Free Exercise DB](https://github.com/yuhonas/free-exercise-db) 的 Public Domain（Unlicense）动作照片制作，每张 GIF 为 2 帧循环，仅用于动作示意。Y 举 / 地雷推 GIF 使用 [Bryllim Workout Guide](https://bryllim.github.io/workout-guide/) 的线稿（CC BY-SA 4.0），对应 GIF 以同许可提供。
 
 ## 更新方式
 
