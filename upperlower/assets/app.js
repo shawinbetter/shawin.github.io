@@ -51,29 +51,35 @@
         slot: "row", name: "胸支撑器械划船", en: "Chest-Supported Machine Row",
         role: "主项", badge: "main", sets: "3", reps: "8–12", rir: "2", rest: "2′",
         primary: ["lats", "rhomboids", "traps"], secondary: ["rearDelt", "biceps", "forearm"],
-        cue: "胸口贴垫，肘向后拉，肩胛先收再拉；不要用腰把重量甩起来。",
+        cue: "胸口贴垫，肩胛先收再拉，但不要耸肩；不要用腰把重量甩起来。",
         gif: "row"
       },
       {
         slot: "pulldown", name: "高位下拉", en: "Lat Pulldown",
         role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "2", rest: "2′",
         primary: ["lats", "biceps", "brachialis"], secondary: ["rhomboids", "traps", "forearm"],
-        cue: "胸骨微抬，先沉肩胛再拉；把手拉到锁骨附近，不要后仰甩重量。",
+        cue: "胸骨微抬，先沉肩胛再拉；不要耸肩，不要后仰甩重量。",
         gif: "pulldown"
       },
       {
-        slot: "machine-press", name: "器械推肩", en: "Machine Shoulder Press",
-        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1–2", rest: "2′",
-        primary: ["frontDelt", "sideDelt", "triceps"], secondary: ["chest", "serratus"],
-        cue: "座椅调到把手与肩同高或略低，肘在身体前侧 30–45°；背贴靠垫，不塌腰、不耸肩。",
-        gif: "machine-press"
+        slot: "landmine-press", name: "单臂地雷管推肩", en: "One-Arm Landmine Press",
+        role: "辅项", badge: "func", sets: "2", reps: "8–12 / 侧", rir: "1–2", rest: "2′",
+        primary: ["frontDelt", "sideDelt", "triceps"], secondary: ["serratus", "obliques", "glutes"],
+        cue: "站姿或半跪姿，肩胛下沉，肋骨叠在骨盆上；单臂向前上方推，不耸肩、不塌腰。",
+        gif: "landmine-press", altLabel: "器械替代",
+        alts: [
+          alt("machine-press", "器械推肩", "Machine Shoulder Press", "machine-press", ["frontDelt", "sideDelt", "triceps"], ["chest", "serratus"], "座椅调到把手与肩同高或略低，肘在身体前侧 30–45°；背贴靠垫，不塌腰、不耸肩。", { sets: "2", reps: "8–12", rest: "2′" })
+        ]
       },
       {
         slot: "lateral", name: "哑铃侧平举", en: "Dumbbell Lateral Raise",
         role: "辅项", badge: "aux", sets: "2", reps: "12–15", rir: "1", rest: "60″",
         primary: ["sideDelt"], secondary: ["traps", "rotator"],
-        cue: "肘带手，不要耸肩；手臂在肩胛平面略前 30° 抬起，小指略高或与肩平。",
-        gif: "lateral"
+        cue: "先沉肩，再抬手臂；肘带手，不要耸肩。如果斜方肌先鼓起来，重量减半。",
+        gif: "lateral", altLabel: "Y举替代",
+        alts: [
+          alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；轻重量，感受下斜方和后束。", { sets: "2", reps: "12–15", rest: "60″" })
+        ]
       },
       {
         slot: "pushdown", name: "绳索三头下压", en: "Cable Triceps Pushdown",
@@ -93,7 +99,7 @@
         slot: "facepull", name: "绳索面拉", en: "Cable Face Pull",
         role: "辅项", badge: "aux", sets: "2", reps: "12–15", rir: "1", rest: "60″",
         primary: ["rearDelt", "rhomboids"], secondary: ["traps", "rotator"],
-        cue: "绳索拉到眉心高度，肘向外打开；不要把重量拉向胸口，也不要耸肩。",
+        cue: "绳索拉到眉心高度，肘向外打开；肩胛下沉，不要把重量拉向胸口，也不要耸肩。",
         gif: "facepull"
       }
     ],
@@ -168,7 +174,7 @@
         cue: "先沉肩，再把肘拉向肋骨；用辅助机或弹力带保证 8–12 次全程，不甩腿。",
         gif: "pullup-assisted", altLabel: "下拉替代",
         alts: [
-          alt("lat-pulldown", "高位下拉", "Lat Pulldown", "pulldown", ["lats", "biceps", "brachialis"], ["rhomboids", "traps", "forearm"], "胸骨微抬，先沉肩胛再拉；把手拉到锁骨附近，不要后仰甩重量。", { sets: "3", reps: "8–12", rest: "2′" })
+          alt("lat-pulldown", "高位下拉", "Lat Pulldown", "pulldown", ["lats", "biceps", "brachialis"], ["rhomboids", "traps", "forearm"], "胸骨微抬，先沉肩胛再拉；不要耸肩，不要后仰甩重量。", { sets: "3", reps: "8–12", rest: "2′" })
         ]
       },
       {
@@ -189,14 +195,17 @@
         slot: "lateral", name: "哑铃侧平举", en: "Dumbbell Lateral Raise",
         role: "辅项", badge: "aux", sets: "2", reps: "12–15", rir: "1", rest: "60″",
         primary: ["sideDelt"], secondary: ["traps", "rotator"],
-        cue: "肘带手，不要耸肩；手臂在肩胛平面略前 30° 抬起，小指略高或与肩平。",
-        gif: "lateral"
+        cue: "先沉肩，再抬手臂；肘带手，不要耸肩。如果斜方肌先鼓起来，重量减半。",
+        gif: "lateral", altLabel: "Y举替代",
+        alts: [
+          alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；轻重量，感受下斜方和后束。", { sets: "2", reps: "12–15", rest: "60″" })
+        ]
       },
       {
         slot: "overhead-ext", name: "绳索过顶臂屈伸", en: "Cable Overhead Triceps Extension",
         role: "辅项", badge: "aux", sets: "2", reps: "10–15", rir: "1", rest: "60″",
         primary: ["triceps"], secondary: ["frontDelt", "forearm"],
-        cue: "背对低位龙门架，绳索在头后；肘尖朝前，下放到三头有拉伸，再伸肘。",
+        cue: "背对低位龙门架，绳索在头后；肩胛下沉、肋骨不外翻，肘尖朝前，下放到三头有拉伸再伸肘。",
         gif: "overhead-ext"
       },
       {
