@@ -98,17 +98,6 @@
         alts: [
           alt("decline-crunch", "斜凳卷腹", "Decline Crunch", "decline-crunch", ["abs", "obliques"], ["hipFlexors"], "脚固定，胸骨卷向骨盆；不要用手拉头，下放时保持腹部张力。", { sets: "2", reps: "8–12" })
         ]
-      },
-      {
-        slot: "push-functional", name: "站姿绳索木劈", en: "Standing Cable Wood Chop",
-        role: "功能", badge: "func", sets: "2", reps: "8–10 / 侧", rir: "—", rest: "60″",
-        primary: ["obliques", "abs", "erectors"], secondary: ["serratus", "glutes", "rotator"],
-        cue: "侧对绳索，双手从高处向对侧髋部斜劈；胸椎旋转，骨盆保持稳定。重量轻，8–10 次/侧，慢回，不要用腰甩。下一次推日换地雷推肩或 Pallof。",
-        gif: "wood-chop", altLabel: "胸椎 / 肩交替",
-        alts: [
-          alt("landmine-press", "单臂地雷管推肩", "One-Arm Landmine Press", "landmine-press", ["frontDelt", "sideDelt", "triceps"], ["obliques", "serratus", "glutes"], "站姿或半跪姿，单臂把杠铃向前上方推；身体不转、不塌腰。肩膀不适就减小幅度。", { sets: "2", reps: "8–12 / 侧", rest: "60″" }),
-          alt("pallof", "帕洛夫推", "Pallof Press", "pallof", ["obliques", "abs"], ["rotator", "glutes"], "侧对绳索，双手在胸前把把手推出，身体不转；慢回。8–10 次/侧，重量轻。真正的抗旋转动作，和木劈二选一。", { sets: "2", reps: "8–10 / 侧", rest: "60″" })
-        ]
       }
     ],
 
