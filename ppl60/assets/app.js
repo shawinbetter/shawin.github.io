@@ -218,14 +218,15 @@
         gif: "adductor"
       },
       {
-        slot: "calf", name: "杠铃站姿提踵", en: "Standing Barbell Calf Raise",
+        slot: "calf", name: "哑铃站姿提踵", en: "Dumbbell Standing Calf Raise",
         role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "45–60″",
         primary: ["calves"], secondary: ["hamstrings", "glutes"],
-        cue: "杠铃放在上背，前脚掌踩 2–5 cm 的杠铃片或台阶；顶峰停 1 秒，慢下。用深蹲架保护，不弹震；脖子不适就改哑铃。",
-        gif: "barbell-calf", altLabel: "器械替代",
-        load: "先空杆 20 kg 做 2 组熟悉平衡；正式组从 30–40 kg 总重开始，8–12 次留 1–2 次余力；能标准做满 12 次再加 5–10 kg。",
+        cue: "双手各持一只哑铃自然下垂，肩胛下沉、脖子中立；前脚掌踩 2–5 cm 的杠铃片或台阶，顶峰停 1 秒，慢下。不要弹震；握力或脖子不适就改单腿/器械。",
+        gif: "dumbbell-calf", altLabel: "器械 / 单腿替代",
+        load: "从每手 12.5–15 kg（总 25–30 kg）开始，8–12 次留 1–2 次余力；能标准做满 12 次再加 2.5 kg/手。握力先力竭就改单腿或器械。",
         alts: [
-          alt("machine-calf", "器械站姿提踵", "Standing Calf Raise", "calf", ["calves"], ["hamstrings", "glutes"], "脚尖朝前，膝盖微屈固定；顶峰停 1 秒，下放到脚跟低于台阶。不要弹震。", { sets: "3", reps: "8–12", rest: "45–60″", load: "按器械配重，8–12 次 RIR 1–2。" })
+          alt("machine-calf", "器械站姿提踵", "Standing Calf Raise", "calf", ["calves"], ["hamstrings", "glutes"], "脚尖朝前，膝盖微屈固定；顶峰停 1 秒，下放到脚跟低于台阶。不要弹震。", { sets: "3", reps: "8–12", rest: "45–60″", load: "按器械配重，8–12 次 RIR 1–2。" }),
+          alt("single-leg-db-calf", "单腿哑铃提踵", "Single-Leg Dumbbell Calf Raise", "calf", ["calves"], ["hamstrings", "glutes"], "一手扶架，另一手持哑铃；单腿前脚掌踩台阶，顶峰停 1 秒，慢下。平衡不稳或握力不够时用它。", { sets: "3", reps: "8–12 / 腿", rest: "45–60″", load: "从单只 15–20 kg 开始，8–12 次 RIR 1–2。" })
         ]
       }
     ]
