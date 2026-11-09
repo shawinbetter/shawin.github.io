@@ -74,17 +74,17 @@
       },
       {
         slot: "lateral", name: "哑铃侧平举", en: "Dumbbell Lateral Raise",
-        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "3", reps: "12→15→15", rir: "0–1", rest: "60–90″",
         primary: ["sideDelt"], secondary: ["traps", "rotator"],
-        cue: "超级组：与绳索过顶臂屈伸交替，3 组足够。肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。重量宁轻勿甩，脖子放松。",
-        gif: "lateral", altLabel: "替补", superset: true,
+        cue: "递减组（三连降）：7.5 kg×12 → 5 kg×15 → 2.5 kg×15，三次合算 1 组；共 3 组。三次之间只换哑铃，做完再休 60–90″；最后 2.5 kg 也要控制，不要甩。肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。",
+        gif: "lateral", altLabel: "替补", dropSet: true,
         alts: [
-          alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；用轻重量，感受肩胛下束和后束。它更偏后束 / 下斜方，不是中束的完全等价替代。", { sets: "3", reps: "8–12", rest: "60″" })
+          alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；用轻重量，感受肩胛下束和后束。它更偏后束 / 下斜方，不是中束的完全等价替代。", { sets: "3", reps: "8–12", rest: "60″", dropSet: false })
         ]
       },
       {
         slot: "triceps", name: "绳索过顶臂屈伸", en: "Cable Overhead Triceps Extension",
-        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1–2", rest: "60–90″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1–2", rest: "60–90″",
         primary: ["triceps"], secondary: ["frontDelt", "forearm"],
         cue: "背对低位龙门架，绳索在头后；肘尖朝前、不要外张，下放到三头有拉伸，再伸肘。肋骨不要外翻。",
         gif: "overhead-ext"
@@ -153,7 +153,7 @@
       },
       {
         slot: "biceps", name: "器械牧师凳弯举", en: "Machine Preacher Curl",
-        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1", rest: "60–90″",
+        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60–90″",
         primary: ["biceps", "brachialis"], secondary: ["forearm"],
         cue: "肘固定在垫上，下放到接近伸直但不锁死；不要用肩把重量抬起来。顶端停 1 秒，离心慢放。",
         gif: "preacher",
@@ -317,7 +317,7 @@
   function cardHTML(day, base, ex, st, index) {
     const gifPath = `assets/gifs/${ex.gif}.gif`;
     const replaceBadge = base.alts && base.alts.length ? `<span class="badge">可替换</span>` : "";
-    const supersetBadge = ex.superset ? `<span class="badge">超级组</span>` : "";
+    const dropBadge = ex.dropSet ? `<span class="badge">递减组</span>` : "";
     return `
       <article class="exercise-card" data-slot="${base.slot}" data-day="${day}" tabindex="0" aria-label="${ex.name}">
         <div class="ex-top">
@@ -327,7 +327,7 @@
             <div class="ex-badges">
               <span class="badge ${ex.badge}">${ex.role}</span>
               ${replaceBadge}
-              ${supersetBadge}
+              ${dropBadge}
               <span class="badge">${ex.sets} 组</span>
             </div>
           </div>
