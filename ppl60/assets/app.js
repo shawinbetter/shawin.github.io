@@ -1,4 +1,4 @@
-/* PPL 60 — data, body map, and interactions. */
+/* PPL 70 — data, body map, and interactions. */
 (function () {
   "use strict";
 
@@ -45,8 +45,8 @@
         primary: ["chest", "frontDelt", "triceps"], secondary: ["serratus", "rotator"],
         cue: "肩胛后缩下沉，脚踩实，臀不离凳；杠铃下放到胸骨下缘，前臂接近垂直。推起时呼气，不憋气顶腰。",
         gif: "bench",
-        phaseBrief: `<span class="phase-pill volume">容量训练 4×8–12</span><span class="phase-pill strength">金字塔力量 5×5 → 3×3 → 1×1</span><span class="phase-pill peak">冲顶 5/3/1 → 1×1</span>`,
-        phase: `<p><b>W1–2</b> 4×8–12 @RIR 2</p><p><b>W3</b> 5×5 → 3×3 → 1×1 @92–95% → 2×8–12</p><p><b>W4</b> 减载 3×8 @RIR 3</p><p><b>W5–6</b> 4×8–12</p><p><b>W7</b> 5/3/1 → 1×1 @95–100% → 2×8–12</p><p><b>W8</b> 减载 3×8</p><p class="phase-note">第 3 周顶单不是真 1RM；第 7 周有保护者再冲，没保护停在 92–95%。力量周上斜 / 夹胸 / 三头各减 1 组。</p>`,
+        phaseBrief: `<span class="phase-pill volume">P1–P2 4×8–12</span><span class="phase-pill deload">P3 减载 3×8</span><span class="phase-pill strength">P4 顶组 3–5</span>`,
+        phase: `<p><b>P1–P2</b> 4×8–12 @RIR 2</p><p><b>P3</b> 减载 3×8 @RIR 3–4</p><p><b>P4</b> 1×3–5 @RIR 1–2 → 3×8–12</p><p><b>P5</b> 4×8–12 @RIR 2（疲劳则 3×8–12）</p><p class="phase-note">P4 的顶组是“重一组”，不是 1RM；有保护者/安全杆再做。P3 所有辅项也减 40–50%。</p>`,
       },
       {
         slot: "incline-press", name: "哑铃上斜推", en: "Incline Dumbbell Press",
@@ -76,8 +76,8 @@
         slot: "lateral", name: "哑铃侧平举", en: "Dumbbell Lateral Raise",
         role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
         primary: ["sideDelt"], secondary: ["traps", "rotator"],
-        cue: "肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。重量宁轻勿甩，脖子放松。",
-        gif: "lateral", altLabel: "替补",
+        cue: "超级组：与绳索过顶臂屈伸交替，3 组足够。肘带手，不要耸肩；手臂在肩胛平面（略前 30°）抬起，小指略高或与肩平。重量宁轻勿甩，脖子放松。",
+        gif: "lateral", altLabel: "替补", superset: true,
         alts: [
           alt("y-raise", "俯身 Y举", "Prone Y Raise", "y-raise", ["rearDelt", "traps", "rhomboids"], ["rotator"], "俯卧或上斜凳，拇指朝上，手臂向斜前方举成 Y；用轻重量，感受肩胛下束和后束。它更偏后束 / 下斜方，不是中束的完全等价替代。", { sets: "3", reps: "8–12", rest: "60″" })
         ]
@@ -103,10 +103,11 @@
         slot: "push-functional", name: "站姿绳索木劈", en: "Standing Cable Wood Chop",
         role: "功能", badge: "func", sets: "2", reps: "8–10 / 侧", rir: "—", rest: "60″",
         primary: ["obliques", "abs", "erectors"], secondary: ["serratus", "glutes", "rotator"],
-        cue: "侧对绳索，双手从高处向对侧髋部斜劈；胸椎旋转，骨盆保持稳定。重量轻，8–10 次/侧，慢回，不要用腰甩。下一次推日换成地雷推肩。",
+        cue: "侧对绳索，双手从高处向对侧髋部斜劈；胸椎旋转，骨盆保持稳定。重量轻，8–10 次/侧，慢回，不要用腰甩。下一次推日换地雷推肩或 Pallof。",
         gif: "wood-chop", altLabel: "胸椎 / 肩交替",
         alts: [
-          alt("landmine-press", "单臂地雷管推肩", "One-Arm Landmine Press", "landmine-press", ["frontDelt", "sideDelt", "triceps"], ["obliques", "serratus", "glutes"], "站姿或半跪姿，单臂把杠铃向前上方推；身体不转、不塌腰。肩膀不适就减小幅度。", { sets: "2", reps: "8–12 / 侧", rest: "60″" })
+          alt("landmine-press", "单臂地雷管推肩", "One-Arm Landmine Press", "landmine-press", ["frontDelt", "sideDelt", "triceps"], ["obliques", "serratus", "glutes"], "站姿或半跪姿，单臂把杠铃向前上方推；身体不转、不塌腰。肩膀不适就减小幅度。", { sets: "2", reps: "8–12 / 侧", rest: "60″" }),
+          alt("pallof", "帕洛夫推", "Pallof Press", "pallof", ["obliques", "abs"], ["rotator", "glutes"], "侧对绳索，双手在胸前把把手推出，身体不转；慢回。8–10 次/侧，重量轻。真正的抗旋转动作，和木劈二选一。", { sets: "2", reps: "8–10 / 侧", rest: "60″" })
         ]
       }
     ],
@@ -118,8 +119,8 @@
         primary: ["glutes", "hamstrings", "erectors"], secondary: ["lats", "traps", "forearm", "abs", "adductors"],
         cue: "杠贴小腿，腋窝夹紧，吸气后撑住腹部；脚推地、髋膝同时伸，杠走直线。锁定时站直即可，不要后仰。正式组用助力带，避免混合握。",
         gif: "deadlift",
-        phaseBrief: `<span class="phase-pill strength">力量组 3×3–5</span><span class="phase-pill deload">减载 2×3</span><span class="phase-pill muted">不做 8–12 容量</span>`,
-        phase: `<p><b>W1–3</b> 3×3–5 @RIR 2</p><p><b>W4</b> 减载 2×3</p><p><b>W5–7</b> 3×3–5</p><p><b>W8</b> 减载 2×3</p><p class="phase-note">只做力量组，不做 8–12 容量组。</p>`,
+        phaseBrief: `<span class="phase-pill strength">P1–P2 3×3–5</span><span class="phase-pill deload">P3 2×3</span><span class="phase-pill muted">P4 顶组 3</span>`,
+        phase: `<p><b>P1–P2</b> 3×3–5 @RIR 2</p><p><b>P3</b> 减载 2×3 @RIR 3</p><p><b>P4</b> 1×3 @RIR 1–2 → 2×3–5</p><p><b>P5</b> 3×3–5 @RIR 2（疲劳则 2×3）</p><p class="phase-note">只做力量组，不做 8–12 容量组；P4 顶组不是 1RM。</p>`,
       },
       {
         slot: "pullup", name: "对握引体向上", en: "Neutral-Grip Pull-Up",
@@ -132,6 +133,13 @@
           alt("assisted-pullup", "辅助引体向上", "Assisted Pull-Up", "pullup-assisted", ["lats", "biceps", "brachialis"], ["rhomboids", "forearm"], "用辅助机或弹力带，保证 8–12 次全程；不要为了次数把下巴伸出去。", { sets: "3", reps: "8–12" }),
           alt("lat-pulldown", "高位下拉", "Lat Pulldown", "pulldown", ["lats", "biceps", "brachialis"], ["rhomboids", "traps", "forearm"], "胸骨微抬，先沉肩胛再拉；把手拉到锁骨附近，不要后仰甩重量。", { sets: "3", reps: "8–12" })
         ]
+      },
+      {
+        slot: "pulldown", name: "高位下拉", en: "Lat Pulldown",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1–2", rest: "90″",
+        primary: ["lats", "biceps", "brachialis"], secondary: ["rhomboids", "traps", "forearm"],
+        cue: "作为引体的补充：胸骨微抬，先沉肩胛再拉；把手拉到锁骨附近，不要后仰甩重量。2 组就够，别把拉日拖长。",
+        gif: "pulldown"
       },
       {
         slot: "row", name: "胸支撑器械划船", en: "Chest-Supported Machine Row",
@@ -156,7 +164,7 @@
       },
       {
         slot: "biceps", name: "器械牧师凳弯举", en: "Machine Preacher Curl",
-        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60–90″",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1", rest: "60–90″",
         primary: ["biceps", "brachialis"], secondary: ["forearm"],
         cue: "肘固定在垫上，下放到接近伸直但不锁死；不要用肩把重量抬起来。顶端停 1 秒，离心慢放。",
         gif: "preacher",
@@ -166,7 +174,7 @@
       },
       {
         slot: "abs-pull", name: "斜凳卷腹", en: "Decline Crunch",
-        role: "核心", badge: "core", last: true, sets: "3", reps: "8–12", rir: "1–2", rest: "45″",
+        role: "核心", badge: "core", last: true, sets: "2", reps: "8–12", rir: "1–2", rest: "45″",
         primary: ["abs", "obliques"], secondary: ["hipFlexors"],
         cue: "斜凳调到 15–20°，脚固定；把胸骨卷向骨盆，不是用手拉头。下放时保持腹部张力。",
         gif: "decline-crunch", altLabel: "卷腹变式",
@@ -190,10 +198,10 @@
         primary: ["quads", "glutes", "adductors"], secondary: ["erectors", "abs", "hamstrings", "calves"],
         cue: "脚掌三点压地，膝盖跟脚尖同向；下蹲到能保持躯干刚性的深度。起身时呼气，不要憋气顶。杠位以肩背舒适为准。",
         gif: "squat", altLabel: "主项区块",
-        phaseBrief: `<span class="phase-pill volume">基础 4×5–8</span><span class="phase-pill deload">减载 2×5</span>`,
-        phase: `<p><b>W1–3</b> 4×5–8 @RIR 2</p><p><b>W4</b> 减载 2×5</p><p><b>W5–7</b> 4×5–8</p><p><b>W8</b> 减载 2×5</p>`,
+        phaseBrief: `<span class="phase-pill volume">P1–P2 4×5–8</span><span class="phase-pill deload">P3 2×5</span><span class="phase-pill strength">P4 顶组 3–5</span>`,
+        phase: `<p><b>P1–P2</b> 4×5–8 @RIR 2</p><p><b>P3</b> 减载 2×5 @RIR 3</p><p><b>P4</b> 1×3–5 @RIR 1–2 → 3×5–8</p><p><b>P5</b> 4×5–8 @RIR 2（疲劳则 3×5–8）</p>`,
         alts: [
-          alt("zercher", "泽奇深蹲", "Zercher Squat", "zercher", ["quads", "glutes", "adductors"], ["erectors", "abs", "biceps", "traps"], "杠放在肘窝，垫毛巾；肘抬高、胸骨向上，先屈髋再屈膝。重量比背蹲轻，别硬追。", { sets: "3", reps: "6–8", rest: "3′", phaseBrief: `<span class="phase-pill volume">基础 3×6–8</span><span class="phase-pill deload">减载 2×6–8</span>`, phase: `<p><b>W1–3 / 5–7</b> 3×6–8</p><p><b>W4 / 8</b> 2×6–8</p>` })
+          alt("zercher", "泽奇深蹲", "Zercher Squat", "zercher", ["quads", "glutes", "adductors"], ["erectors", "abs", "biceps", "traps"], "杠放在肘窝，垫毛巾；肘抬高、胸骨向上，先屈髋再屈膝。重量比背蹲轻，别硬追。", { sets: "3", reps: "6–8", rest: "3′", phaseBrief: `<span class="phase-pill volume">P1–P2 3×6–8</span><span class="phase-pill deload">P3 2×6–8</span><span class="phase-pill strength">P4 顶组 3–5</span>`, phase: `<p><b>P1–P2 / P5</b> 3×6–8</p><p><b>P3</b> 2×6–8</p><p><b>P4</b> 1×3–5 → 2×6–8</p>` })
         ]
       },
       {
@@ -215,7 +223,7 @@
       },
       {
         slot: "adductor", name: "内收肌器械", en: "Hip Adductor Machine",
-        role: "辅项", badge: "aux", sets: "3", reps: "8–12", rir: "1", rest: "60″",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "1", rest: "60″",
         primary: ["adductors"], secondary: ["glutes", "abs"],
         cue: "坐稳，骨盆中立；用大腿内侧夹合，慢回。不要用过大重量，避免腹股沟不适。",
         gif: "adductor"
@@ -320,6 +328,7 @@
   function cardHTML(day, base, ex, st, index) {
     const gifPath = `assets/gifs/${ex.gif}.gif`;
     const replaceBadge = base.alts && base.alts.length ? `<span class="badge">可替换</span>` : "";
+    const supersetBadge = ex.superset ? `<span class="badge">超级组</span>` : "";
     return `
       <article class="exercise-card" data-slot="${base.slot}" data-day="${day}" tabindex="0" aria-label="${ex.name}">
         <div class="ex-top">
@@ -329,6 +338,7 @@
             <div class="ex-badges">
               <span class="badge ${ex.badge}">${ex.role}</span>
               ${replaceBadge}
+              ${supersetBadge}
               <span class="badge">${ex.sets} 组</span>
             </div>
           </div>
@@ -349,7 +359,7 @@
             <p class="cue">${ex.cue}</p>
             ${ex.load ? `<p class="load-note"><b>起始重量</b> ${ex.load}</p>` : ""}
             ${ex.phaseBrief ? `<div class="phase-brief">${ex.phaseBrief}</div>` : ""}
-            ${ex.phase ? `<details class="phase"><summary>8 周详细安排</summary><div class="phase-list">${ex.phase}</div></details>` : ""}
+            ${ex.phase ? `<details class="phase"><summary>P1–P5 详细安排</summary><div class="phase-list">${ex.phase}</div></details>` : ""}
             ${optionsHTML(base, st)}
           </div>
         </div>

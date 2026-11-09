@@ -404,6 +404,12 @@ main { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
 
 .cycle-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; margin-top: 20px; }
+.cycle-grid.six { grid-template-columns: repeat(6, 1fr); }
+.cycle-block + .cycle-block { margin-top: 28px; }
+.cycle-block-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.cycle-tag { color: var(--lime); font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; }
+.cycle-block-head h3 { font-size: 18px; letter-spacing: -0.02em; }
+.cycle-block-head p { color: var(--muted); font-size: 11px; line-height: 1.6; }
 .cycle-note { margin-top: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: rgba(255,255,255,.022); }
 .cycle-note p { color: var(--muted); font-size: 11.5px; line-height: 1.75; }
 .cycle-note p + p { margin-top: 6px; }
@@ -490,6 +496,7 @@ main { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
   .day-nav-meta { display: none; }
   .week-grid { grid-template-columns: repeat(3, 1fr); }
   .cycle-grid { grid-template-columns: repeat(3, 1fr); }
+  .cycle-grid.six { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 900px) {
   .hero { padding-top: 16px; }
@@ -568,6 +575,7 @@ main { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
   .section-head > p { margin-top: 12px; text-align: left; }
   .week-grid { grid-template-columns: 1fr 1fr; gap: 7px; }
   .cycle-grid { grid-template-columns: 1fr; gap: 7px; }
+  .cycle-grid.six { grid-template-columns: 1fr; gap: 7px; }
   .cycle-grid .week-day.rest { grid-column: auto; }
   .cycle-note p { font-size: 10.5px; }
   .week-day { min-height: 142px; }
