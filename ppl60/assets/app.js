@@ -98,6 +98,13 @@
         alts: [
           alt("decline-crunch", "斜凳卷腹", "Decline Crunch", "decline-crunch", ["abs", "obliques"], ["hipFlexors"], "脚固定，胸骨卷向骨盆；不要用手拉头，下放时保持腹部张力。", { sets: "2", reps: "8–12" })
         ]
+      },
+      {
+        slot: "pallof", name: "帕洛夫推", en: "Pallof Press",
+        role: "核心", badge: "core", last: true, sets: "2", reps: "10 / 侧", rir: "1–2", rest: "60″",
+        primary: ["obliques", "abs"], secondary: ["rotator", "glutes"],
+        cue: "侧对绳索，双手在胸前把把手推出，身体不转；慢回。10 次/侧，重量轻。这是抗旋转，不是木劈那种旋转。",
+        gif: "pallof"
       }
     ],
 
