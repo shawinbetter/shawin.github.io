@@ -57,10 +57,13 @@
       },
       {
         slot: "machine-press", name: "器械推肩", en: "Machine Shoulder Press",
-        role: "主项", badge: "main", sets: "3", reps: "8–12", rir: "1–2", rest: "2′",
+        role: "辅项", badge: "aux", sets: "2", reps: "8–12", rir: "2", rest: "2′",
         primary: ["frontDelt", "sideDelt", "triceps"], secondary: ["chest", "serratus", "rotator"],
-        cue: "座椅调到把手与肩同高或略低，肘在身体前侧 30–45°，下放到耳朵附近；背贴靠垫，不塌腰、不耸肩。",
-        gif: "machine-press", fixed: "固定：不做坐姿哑铃推肩"
+        cue: "作为垂直推保留，2 组就够；放在卧推/上斜后，重量比平时降 10–15%，RIR 2。座椅调到把手与肩同高或略低，肘在身体前侧 30–45°，背贴靠垫，不塌腰、不耸肩；不做坐姿哑铃推肩。",
+        gif: "machine-press", altLabel: "地雷替代",
+        alts: [
+          alt("landmine-press", "单臂地雷推肩", "One-Arm Landmine Press", "landmine-press", ["frontDelt", "sideDelt", "triceps"], ["obliques", "serratus", "glutes"], "站姿或半跪姿，单臂把杠铃向前上方推；身体不转、不塌腰。比器械推肩更省肩、更吃核心；2 组 8–12/侧，RIR 2。", { sets: "2", reps: "8–12 / 侧", rir: "2", rest: "90″" })
+        ]
       },
       {
         slot: "chest-accessory", name: "蝴蝶机夹胸", en: "Pec Deck",
