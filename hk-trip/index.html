@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一日环香港 · 粤车南下 | 佛山 08:30 出发</title>
+<meta name="description" content="佛山出发、港珠澳大桥往返香港的一日自驾行程：端记茶楼、海港城露天停车场、浅水湾、赤柱、石澳、太平山顶。含停车位置、限高、费用与时间可行性分析。">
+<meta name="theme-color" content="#070b13">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{
+  --bg:#070b13; --bg2:#0a1020; --panel:#0e1728; --panel2:#111d33;
+  --line:rgba(148,180,220,.14); --line2:rgba(148,180,220,.08);
+  --ink:#eaf1fb; --muted:#8ea3c2; --dim:#5f7391;
+  --amber:#ffb454; --teal:#54d6c6; --coral:#ff6f8e; --violet:#9b8cff;
+  --mono:"Space Grotesk","SF Mono",ui-monospace,Menlo,monospace;
+  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB",system-ui,sans-serif;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.68;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1100px 620px at 12% -8%,rgba(84,214,198,.10),transparent 62%),
+  radial-gradient(900px 520px at 92% 2%,rgba(255,180,84,.08),transparent 60%),
+  radial-gradient(800px 600px at 50% 110%,rgba(155,140,255,.07),transparent 60%),var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(120,160,220,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,220,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 78%)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.progress{position:fixed;left:0;top:0;height:2px;width:0;z-index:1200;background:linear-gradient(90deg,var(--teal),var(--amber),var(--coral));box-shadow:0 0 14px rgba(84,214,198,.5)}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:1100;height:64px;background:rgba(7,11,19,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line2)}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--muted);white-space:nowrap}
+.brand-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(145deg,var(--teal),#2b8f85);color:#04121a;font-weight:700;font-size:11px;letter-spacing:.02em}
+.nav-links{display:flex;gap:20px;font-size:12.5px;color:var(--muted)}
+.nav-links a{position:relative;padding:4px 0;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--teal);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;border:1px solid rgba(84,214,198,.4);background:linear-gradient(135deg,rgba(84,214,198,.18),rgba(84,214,198,.06));color:var(--ink);font-size:13.5px;font-weight:500;cursor:pointer;transition:.22s;font-family:var(--sans)}
+.btn:hover{border-color:var(--teal);background:linear-gradient(135deg,rgba(84,214,198,.3),rgba(84,214,198,.1));transform:translateY(-1px)}
+.btn.ghost{border-color:var(--line);background:rgba(255,255,255,.03)}
+.btn.ghost:hover{border-color:rgba(255,180,84,.6);background:rgba(255,180,84,.08)}
+.btn.small{padding:9px 15px;font-size:12px}
+.btn span{font-family:var(--mono)}
+
+/* HERO */
+.hero{padding-top:148px;padding-bottom:26px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.28fr .72fr;gap:54px;align-items:center}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--teal);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:26px;height:1px;background:var(--teal);display:inline-block}
+h1{font-size:clamp(40px,5.4vw,70px);line-height:1.1;letter-spacing:-.025em;font-weight:700;margin:20px 0 22px}
+h1 em{font-style:normal;color:var(--amber);position:relative;white-space:nowrap}
+h1 em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:8px;background:rgba(255,180,84,.14);border-radius:2px;z-index:-1}
+.hero-sub{color:var(--muted);font-size:15.5px;max-width:620px;margin:0}
+.hero-sub b{color:var(--ink);font-weight:500}
+.hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.stat{background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:16px;padding:17px 18px 15px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(84,214,198,.45),transparent)}
+.stat b{display:block;font-family:var(--mono);font-size:25px;line-height:1.2;letter-spacing:-.01em}
+.stat b i{font-style:normal;font-size:13px;color:var(--muted);margin-left:3px}
+.stat small{display:block;color:var(--dim);font-size:11px;letter-spacing:.13em;margin-top:6px}
+.verdict{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:15px 18px;border:1px solid rgba(255,111,142,.26);background:linear-gradient(90deg,rgba(255,111,142,.10),rgba(255,111,142,.02));border-radius:14px;font-size:13px;color:#f2c6d0}
+.verdict .vtag{flex:none;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#ffd0da;border:1px solid rgba(255,111,142,.4);border-radius:999px;padding:3px 9px;margin-top:1px}
+.verdict b{color:#fff;font-weight:500}
+
+/* TICKET */
+.ticket{background:linear-gradient(155deg,#101d33,#0a1322 70%);border:1px solid var(--line);border-radius:22px;padding:24px 24px 22px;position:relative;box-shadow:0 34px 90px rgba(0,0,0,.5);overflow:hidden}
+.ticket::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 110% -20%,rgba(255,180,84,.16),transparent 60%);pointer-events:none}
+.ticket-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--dim)}
+.ticket-route{display:flex;align-items:baseline;gap:12px;margin:20px 0 4px;font-size:26px;font-weight:600;letter-spacing:-.01em}
+.ticket-route span{color:var(--amber);font-family:var(--mono);font-size:18px}
+.ticket-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.19em;color:var(--dim)}
+.ticket-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px 10px;border-top:1px dashed rgba(148,180,220,.22);margin-top:20px;padding-top:17px}
+.ticket-meta small{display:block;color:var(--dim);font-size:10px;letter-spacing:.12em}
+.ticket-meta b{display:block;font-family:var(--mono);font-size:19px;font-weight:600;margin-top:2px}
+.barcode{height:34px;margin-top:20px;opacity:.45;background:repeating-linear-gradient(90deg,#cfe0f5 0 2px,transparent 2px 4px,#cfe0f5 4px 6px,transparent 6px 10px,#cfe0f5 10px 13px,transparent 13px 15px)}
+
+/* SECTION */
+.section{padding:76px 0;border-top:1px solid var(--line2);position:relative}
+.sec-head{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;margin-bottom:34px}
+.sec-num{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--teal)}
+.sec-head h2{font-size:clamp(25px,3vw,36px);line-height:1.2;letter-spacing:-.015em;margin:9px 0 0;font-weight:600}
+.sec-head p{color:var(--muted);max-width:520px;font-size:13.8px;margin:0 0 2px;line-height:1.75}
+
+/* MAP */
+.map-card{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#060c16;height:440px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+#map{height:440px;width:100%;background:radial-gradient(900px 420px at 50% 50%,#0a1626,#050a12 75%)}
+.leaflet-container{background-image:radial-gradient(rgba(120,160,210,.10) 1px,transparent 1px);background-size:24px 24px}
+.map-card::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:450;box-shadow:inset 0 0 120px rgba(0,0,0,.55);border-radius:20px}
+.map-legend{position:absolute;z-index:600;left:14px;top:14px;display:flex;flex-wrap:wrap;gap:12px;padding:9px 12px;border-radius:11px;background:rgba(7,13,24,.82);border:1px solid var(--line);font-size:10.5px;color:var(--muted);backdrop-filter:blur(8px)}
+.map-legend i{display:inline-block;width:16px;height:2px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.map-tools{position:absolute;z-index:600;right:14px;top:14px;display:flex;gap:6px}
+.map-tools button{border:1px solid var(--line);background:rgba(7,13,24,.82);color:var(--muted);border-radius:9px;padding:7px 10px;font-size:10.5px;font-family:var(--mono);cursor:pointer;backdrop-filter:blur(8px);transition:.2s}
+.map-tools button:hover{color:var(--ink);border-color:rgba(84,214,198,.5)}
+.leg-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.leg-row{display:grid;grid-template-columns:30px 1fr auto;gap:8px;align-items:center;padding:9px 10px;background:rgba(255,255,255,.025);border:1px solid transparent;border-radius:11px;color:var(--ink);text-align:left;cursor:pointer;transition:.18s;font-family:inherit;width:100%}
+.leg-row:hover,.leg-row.on{border-color:rgba(84,214,198,.42);background:rgba(84,214,198,.07)}
+.leg-n{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:rgba(84,214,198,.12);color:var(--teal);font-family:var(--mono);font-size:10px}
+.leg-t{font-size:12px;line-height:1.35}
+.leg-t small{display:block;color:var(--dim);font-size:10px;margin-top:1px}
+.leg-m{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:right;white-space:nowrap}
+.map-edge{background:transparent!important;border:0!important;box-shadow:none!important;color:rgba(255,180,84,.7)!important;font-family:var(--mono)!important;font-size:9.5px!important;letter-spacing:.16em!important;padding:0!important;text-shadow:0 1px 6px #000}
+.map-edge::before{display:none!important}
+.map-label{background:transparent!important;border:0!important;box-shadow:none!important;color:rgba(170,198,230,.44)!important;font-family:var(--sans);font-size:10.5px!important;letter-spacing:.22em!important;padding:0!important;text-shadow:0 1px 6px #000}
+.map-label::before{display:none!important}
+.mk-wrap{background:transparent!important;border:0!important}
+.mk{width:30px;height:30px;border-radius:50%;background:#0a1424;border:1.5px solid var(--teal);color:#d9fbf5;display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;font-weight:600;box-shadow:0 0 0 4px rgba(84,214,198,.10),0 10px 24px rgba(0,0,0,.55);transition:.2s;cursor:pointer}
+.mk:hover{transform:scale(1.13);border-color:#fff;box-shadow:0 0 0 6px rgba(84,214,198,.18),0 12px 28px rgba(0,0,0,.6)}
+.mk.port{border-color:var(--amber);color:#ffe9c9;box-shadow:0 0 0 4px rgba(255,180,84,.10),0 10px 24px rgba(0,0,0,.55)}
+.mk.food{border-color:var(--coral);color:#ffd7e0;box-shadow:0 0 0 4px rgba(255,111,142,.10),0 10px 24px rgba(0,0,0,.55)}
+.mk.peak{border-color:var(--violet);color:#e4ddff;box-shadow:0 0 0 4px rgba(155,140,255,.12),0 10px 24px rgba(0,0,0,.55)}
+.leaflet-container{font-family:var(--sans)}
+.leaflet-control-zoom a{background:rgba(7,13,24,.9)!important;color:var(--muted)!important;border-color:var(--line)!important}
+.leaflet-control-zoom a:hover{color:var(--ink)!important}
+.leaflet-control-attribution{background:rgba(7,13,24,.7)!important;color:#54677f!important;font-size:9px!important}
+.leaflet-control-scale-line{background:rgba(7,13,24,.75)!important;border-color:rgba(148,180,220,.4)!important;color:#8ea3c2!important;font-family:var(--mono);font-size:9px!important;padding:1px 6px!important;text-shadow:none!important}
+.leaflet-control-attribution a{color:#6f86a4!important}
+.leaflet-popup-content-wrapper{background:#0d1728;color:var(--ink);border:1px solid rgba(148,180,220,.2);border-radius:13px;box-shadow:0 20px 50px rgba(0,0,0,.55)}
+.leaflet-popup-tip{background:#0d1728;border:1px solid rgba(148,180,220,.2)}
+.leaflet-popup-content{margin:14px 16px;font-size:12px;line-height:1.5}
+.pop-k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--teal);margin-bottom:3px}
+.pop-t{font-size:15px;font-weight:600;margin-bottom:2px}
+.pop-d{color:var(--muted);font-size:11px;margin-bottom:8px}
+.pop a{color:var(--amber);font-size:11px}
+.map-fallback{display:grid;place-items:center;height:100%;color:var(--dim);font-size:12px;padding:30px;text-align:center}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:134px;margin-top:6px}
+.timeline::before{content:"";position:absolute;left:111px;top:14px;bottom:26px;width:1px;background:linear-gradient(180deg,rgba(84,214,198,.5),rgba(148,180,220,.14) 15%,rgba(148,180,220,.14) 85%,rgba(255,180,84,.4))}
+.tl-item{position:relative;padding-bottom:12px}
+.tl-time{position:absolute;left:-134px;width:94px;text-align:right;top:15px;font-family:var(--mono);font-size:19px;font-weight:500;color:var(--ink);letter-spacing:-.01em}
+.tl-time small{display:block;font-size:9px;letter-spacing:.13em;color:var(--dim);margin-top:2px;font-weight:400}
+.tl-dot{position:absolute;left:-28px;top:22px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--teal);box-shadow:0 0 0 4px rgba(84,214,198,.10);z-index:2}
+.tl-item.food .tl-dot{border-color:var(--coral)}
+.tl-item.port .tl-dot{border-color:var(--amber)}
+.tl-item.peak .tl-dot{border-color:var(--violet)}
+.tl-card{background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:16px;padding:18px 20px 16px;transition:.22s}
+.tl-card:hover{border-color:rgba(148,180,220,.28);background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015))}
+.tl-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tl-head h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.tl-num{font-family:var(--mono);font-size:9.5px;color:var(--dim);letter-spacing:.12em}
+.badge{font-size:10px;letter-spacing:.08em;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.food{color:#ffd7e0;border-color:rgba(255,111,142,.32);background:rgba(255,111,142,.08)}
+.badge.port{color:#ffe9c9;border-color:rgba(255,180,84,.32);background:rgba(255,180,84,.08)}
+.badge.peak{color:#e4ddff;border-color:rgba(155,140,255,.32);background:rgba(155,140,255,.08)}
+.tl-desc{color:var(--muted);font-size:13px;margin:9px 0 0;line-height:1.75}
+.tl-desc b{color:var(--ink);font-weight:500}
+.tl-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.chip{font-size:10.5px;padding:4px 9px;border-radius:7px;background:rgba(255,255,255,.04);border:1px solid var(--line2);color:var(--muted)}
+.chip.warn{color:#ffd9ad;background:rgba(255,180,84,.07);border-color:rgba(255,180,84,.22)}
+.chip.bad{color:#ffc9d4;background:rgba(255,111,142,.07);border-color:rgba(255,111,142,.22)}
+.chip.ok{color:#c8f5ef;background:rgba(84,214,198,.07);border-color:rgba(84,214,198,.22)}
+.tl-note{display:flex;gap:8px;align-items:flex-start;margin-top:11px;padding-top:10px;border-top:1px dashed var(--line2);font-size:11.5px;color:var(--dim)}
+.tl-note b{color:var(--muted);font-weight:500}
+.tl-leg{position:relative;margin:0 0 14px;font-size:11.5px;color:var(--dim);display:flex;align-items:center;gap:9px;padding-left:2px}
+.tl-leg::before{content:"";position:absolute;left:-23px;top:50%;width:5px;height:5px;border-radius:50%;background:var(--bg);border:1px solid rgba(148,180,220,.4);transform:translateY(-50%)}
+.tl-leg em{font-style:normal;font-family:var(--mono);color:var(--muted);font-size:10.5px}
+.tl-leg .dash{flex:1;height:1px;background:repeating-linear-gradient(90deg,rgba(148,180,220,.2) 0 3px,transparent 3px 7px);max-width:180px}
+
+/* PARKING */
+.park-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px;align-items:start}
+.park-grid>*,.cost-grid>*,.risk-grid>*,.check-grid>*{min-width:0}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin:0 0 4px;font-size:16px;font-weight:600}
+.card .sub{color:var(--dim);font-size:11.5px;margin:0 0 20px}
+.height-chart{position:relative}
+.haxis{position:relative;height:13px;margin:0 0 8px 98px;font-family:var(--mono);font-size:9px;color:var(--dim)}
+.haxis span{position:absolute;top:0;transform:translateX(-50%)}
+.haxis span:first-child{transform:none}
+.haxis span:last-child{transform:translateX(-100%)}
+.hrow{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:center;margin-bottom:9px}
+.hname{font-size:11px;color:var(--muted);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htrack{height:21px;background:rgba(255,255,255,.035);border-radius:5px;position:relative;overflow:hidden}
+.htrack::after{content:"";position:absolute;left:79.2%;top:-2px;bottom:-2px;border-left:1px dashed rgba(255,111,142,.8);z-index:2;pointer-events:none}
+.hbar{height:100%;border-radius:5px;display:flex;align-items:center;justify-content:flex-start;padding-left:8px;font-family:var(--mono);font-size:9.5px;color:#04121a;font-weight:600;position:relative;z-index:1}
+.hbar.ok{background:linear-gradient(90deg,#2b8f85,#54d6c6)}
+.hbar.warn{background:linear-gradient(90deg,#b97a2a,#ffb454)}
+.hbar.bad{background:linear-gradient(90deg,#b3405a,#ff6f8e)}
+.hbar.open{background:linear-gradient(90deg,#1d4a5c,#2f7f8f);color:#d3f3f5}
+.hlegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:10px;color:var(--dim)}
+.hlegend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.hnote{font-size:10.5px;color:var(--dim);margin-top:12px;line-height:1.6}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.012);min-width:0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:620px}
+th{text-align:left;font-weight:500;color:var(--dim);font-size:10px;letter-spacing:.12em;padding:13px 14px;border-bottom:1px solid var(--line);white-space:nowrap;text-transform:uppercase}
+td{padding:12px 14px;border-top:1px solid var(--line2);vertical-align:top;color:var(--muted)}
+td b{color:var(--ink);font-weight:500}
+td .sm{display:block;font-size:10.5px;color:var(--dim);margin-top:2px}
+tr:hover td{background:rgba(255,255,255,.018)}
+.num{font-family:var(--mono);white-space:nowrap;color:var(--ink)}
+.tag{display:inline-block;font-size:9.5px;padding:2px 7px;border-radius:5px;border:1px solid var(--line);color:var(--dim);margin-left:5px;vertical-align:1px}
+
+/* COST */
+.cost-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:18px;align-items:start}
+.cost-hero{display:flex;flex-direction:column;gap:16px}
+.total-card{background:linear-gradient(150deg,rgba(84,214,198,.1),rgba(255,255,255,.015) 60%);border:1px solid rgba(84,214,198,.24);border-radius:18px;padding:22px;position:relative;overflow:hidden}
+.total-card::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(84,214,198,.18),transparent 70%)}
+.total-card small{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--teal)}
+.total-card .big{font-family:var(--mono);font-size:44px;line-height:1.1;letter-spacing:-.03em;margin:2px 0 1px}
+.total-card .big i{font-style:normal;font-size:15px;color:var(--muted);letter-spacing:0}
+.total-card p{margin:0;color:var(--muted);font-size:11.5px}
+.donut-wrap{display:flex;align-items:center;gap:18px;border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(255,255,255,.015)}
+.donut{width:150px;height:150px;border-radius:50%;position:relative;flex:none;background:conic-gradient(var(--teal) 0 65%,var(--amber) 65% 78%,var(--coral) 78% 84.5%,var(--violet) 84.5% 91.5%,#3f6d8a 91.5% 100%)}
+.donut::after{content:"";position:absolute;inset:26px;border-radius:50%;background:#0b1423}
+.donut-c{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:2}
+.donut-c b{font-family:var(--mono);font-size:16px;display:block;line-height:1.2}
+.donut-c small{font-size:9px;color:var(--dim);letter-spacing:.1em}
+.dlegend{display:flex;flex-direction:column;gap:6px;font-size:10.5px;color:var(--muted);flex:1}
+.dlegend span{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.dlegend i{width:7px;height:7px;border-radius:2px;display:inline-block;margin-right:6px}
+.dlegend b{font-family:var(--mono);color:var(--ink);font-weight:500}
+.seg{display:inline-flex;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:16px}
+.seg-btn{border:0;background:transparent;color:var(--muted);padding:7px 15px;border-radius:999px;font:inherit;font-size:11.5px;cursor:pointer;transition:.2s}
+.seg-btn.active{background:var(--ink);color:#08111f;font-weight:500}
+.cost-note{font-size:11px;color:var(--dim);line-height:1.7;margin-top:12px}
+.cost-note b{color:var(--muted);font-weight:500}
+
+/* RISK */
+.timebar{display:flex;height:36px;border-radius:9px;overflow:hidden;border:1px solid var(--line);margin-bottom:10px}
+.timebar span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9.5px;color:#04121a;white-space:nowrap;overflow:hidden}
+.tb-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:10px;color:var(--dim);margin-bottom:22px}
+.tb-legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.risk{border:1px solid var(--line);border-left:3px solid var(--coral);border-radius:13px;padding:15px 16px;background:linear-gradient(120deg,rgba(255,111,142,.06),rgba(255,255,255,.012) 55%)}
+.risk.mid{border-left-color:var(--amber);background:linear-gradient(120deg,rgba(255,180,84,.055),rgba(255,255,255,.012) 55%)}
+.risk-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.risk-top h4{margin:0;font-size:13.5px;font-weight:600}
+.sev{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:2px 7px;border-radius:999px;border:1px solid rgba(255,111,142,.35);color:#ffc9d4;white-space:nowrap}
+.risk.mid .sev{border-color:rgba(255,180,84,.35);color:#ffd9ad}
+.risk p{margin:7px 0 0;font-size:11.5px;color:var(--muted);line-height:1.65}
+.risk p b{color:var(--ink);font-weight:500}
+.callout{display:flex;gap:14px;align-items:flex-start;margin-top:18px;padding:17px 19px;border-radius:14px;border:1px solid rgba(84,214,198,.25);background:linear-gradient(100deg,rgba(84,214,198,.09),rgba(84,214,198,.02));font-size:12.5px;color:#c9ece8}
+.callout b{color:#fff;font-weight:500}
+.callout .k{flex:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--teal);border:1px solid rgba(84,214,198,.35);border-radius:999px;padding:3px 8px;margin-top:1px}
+
+/* PLAN B */
+.park-table td:nth-child(3),.park-table td:nth-child(5),.park-table td:nth-child(6){white-space:nowrap}
+.plan-table td:first-child{color:var(--ink);width:38%}
+.plan-table td:last-child{color:var(--muted)}
+
+/* CHECK */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check-card h3{margin:0 0 3px;font-size:14px}
+.check-card .sub{margin:0 0 10px;font-size:10.5px;color:var(--dim)}
+.check{display:flex;gap:9px;align-items:flex-start;padding:7px 0;font-size:11.5px;color:var(--muted);cursor:pointer;border-bottom:1px dashed var(--line2);line-height:1.5}
+.check:last-child{border-bottom:0}
+.check input{appearance:none;-webkit-appearance:none;flex:none;width:16px;height:16px;border:1px solid rgba(148,180,220,.35);border-radius:4px;margin:1px 0 0;cursor:pointer;position:relative;transition:.18s;background:transparent}
+.check input:checked{background:var(--teal);border-color:var(--teal)}
+.check input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#04121a;font-size:10px;font-weight:700}
+.check input:checked + span{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(148,180,220,.35)}
+.check b{color:var(--ink);font-weight:500}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);padding:44px 0 60px;color:var(--dim);font-size:11.5px}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px}
+.footer h5{margin:0 0 10px;font-size:10px;letter-spacing:.16em;color:var(--muted);font-family:var(--mono);text-transform:uppercase}
+.footer a{color:#8fa8c7;border-bottom:1px solid rgba(143,168,199,.25)}
+.footer a:hover{color:var(--ink)}
+.src{display:grid;grid-template-columns:1fr 1fr;gap:7px 18px;line-height:1.5}
+.src a{display:inline-block}
+.foot-note{line-height:1.8;margin:0}
+.to-top{position:fixed;right:20px;bottom:20px;z-index:900;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(10,18,32,.9);color:var(--muted);cursor:pointer;display:grid;place-items:center;font-size:14px;opacity:0;pointer-events:none;transition:.25s;backdrop-filter:blur(8px)}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{color:var(--ink);border-color:rgba(84,214,198,.5)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .ticket{max-width:440px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .park-grid,.cost-grid,.footer-grid{grid-template-columns:1fr}
+  .leg-strip{display:flex;overflow-x:auto;gap:8px;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .leg-strip::-webkit-scrollbar{display:none}
+  .leg-row{flex:0 0 250px}
+  .map-edge{display:none}
+  .table-wrap{overflow:visible;border:0;border-radius:0;background:transparent}
+  .table-wrap table{min-width:0;width:100%}
+  .table-wrap thead{display:none}
+  .table-wrap tbody{display:block}
+  .table-wrap tr{display:block;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;padding:8px 12px;background:rgba(255,255,255,.02)}
+  .table-wrap td{display:block;border:0;padding:4px 0;font-size:12px;text-align:left;line-height:1.55}
+  .table-wrap td::before{content:attr(data-label);display:inline-block;min-width:56px;color:var(--dim);font-size:9px;letter-spacing:.1em;margin-right:8px;vertical-align:1px}
+  .table-wrap td b{font-size:13px}
+  .table-wrap td .num{float:right;font-size:12.5px}
+  .table-wrap td:first-child{font-size:13.5px;padding-bottom:6px;margin-bottom:2px;border-bottom:1px dashed var(--line2)}
+  .table-wrap td:first-child::before{color:var(--teal)}
+  .table-wrap td .sm{display:inline;margin:0 0 0 5px;font-size:10px}
+  .risk-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:700px){
+  .wrap{padding:0 18px}
+  .hero{padding-top:120px;padding-bottom:10px}
+  .ticket{max-width:100%}
+  h1{font-size:34px;line-height:1.16}
+  h1 em{white-space:normal}
+  .section{padding:58px 0}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .timeline{padding-left:0}
+  .timeline::before{display:none}
+  .tl-time{position:static;width:auto;text-align:left;font-size:15px;margin-bottom:5px;display:flex;align-items:baseline;gap:8px}
+  .tl-time small{display:inline;margin:0}
+  .tl-dot{display:none}
+  .tl-leg::before{display:none}
+  .tl-leg{padding-left:0}
+  .tl-card{padding:15px 16px}
+  .tl-head h3{font-size:15.5px}
+  .map-card{min-height:400px}
+  #map{height:400px}
+  .check-grid{grid-template-columns:1fr}
+  .donut-wrap{flex-direction:column;align-items:flex-start}
+  .dlegend{width:100%}
+  .ticket-meta{grid-template-columns:1fr 1fr}
+  .total-card .big{font-size:36px}
+  .src{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation:none!important;transition:none!important}
+}
+
+/* PRINT */
+@media print{
+  body{background:#fff;color:#111}
+  body::before,body::after,.nav,.progress,.to-top,.map-card,.hero-actions,.seg,.barcode,.map-side{display:none!important}
+  .hero{padding:0 0 20px}
+  .section{padding:26px 0;border-color:#ddd;break-inside:avoid}
+  .sec-head h2,.hero h1{color:#111}
+  .sec-head p,.hero-sub,.tl-desc,td,.risk p,.footer{color:#333}
+  .stat,.tl-card,.card,.total-card,.risk,.check-card,.table-wrap,.donut-wrap{border:1px solid #ddd!important;background:#fff!important;box-shadow:none!important;color:#111}
+  .stat b,.tl-head h3,.total-card .big,.num,td b{color:#111}
+  .badge,.chip{border-color:#ccc;color:#444;background:#f7f7f7}
+  .timeline{padding-left:0}
+  .timeline::before{display:none}
+  .tl-time{position:static;text-align:left;margin-bottom:3px}
+  .tl-dot{display:none}
+  a{color:#111;border:0}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="brand-mark">HK</span><span>ONE DAY · 01</span></a>
+    <nav class="nav-links">
+      <a href="#route">路线</a>
+      <a href="#timeline">时间轴</a>
+      <a href="#parking">停车</a>
+      <a href="#cost">费用</a>
+      <a href="#risk">可行性</a>
+      <a href="#planb">Plan B</a>
+    </nav>
+    <button class="btn ghost small" id="printBtn">打印 / PDF</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">YUE CHE NAN XIA · ONE DAY · 2026</div>
+        <h1>一日环香港，<br>从一碗<em>川龙早茶</em>开始。</h1>
+        <p class="hero-sub">佛山 <b>08:30</b> 出发，港珠澳大桥往返。端记茶楼 → 海港城露天停车场 → 浅水湾 → 赤柱 → 石澳 → 太平山顶。<b>8 个停靠点、540 公里</b>，预计次日 <b>01:20</b> 到家。</p>
+        <div class="hero-actions">
+          <a class="btn" href="#timeline">看时间轴 <span>→</span></a>
+          <a class="btn ghost" href="#parking">停车与限高</a>
+        </div>
+      </div>
+      <aside class="ticket" aria-label="行程摘要">
+        <div class="ticket-top"><span>BOARDING PASS</span><span>NO. 2026-11</span></div>
+        <div class="ticket-route"><b>佛山</b><span>→</span><b>香港</b></div>
+        <div class="ticket-sub">FOSHAN · HONG KONG · ROUND TRIP</div>
+        <div class="ticket-meta">
+          <div><small>出发</small><b>08:30</b></div>
+          <div><small>预计到家</small><b>01:20</b></div>
+          <div><small>停靠点</small><b>08</b></div>
+          <div><small>同行（估算）</small><b>4 人</b></div>
+        </div>
+        <div class="barcode" aria-hidden="true"></div>
+      </aside>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>540<i>km</i></b><small>总里程 · 往返</small></div>
+      <div class="stat"><b>9h10</b><small>在车上的时间</small></div>
+      <div class="stat"><b>08</b><small>停靠点 · 含 2 个口岸</small></div>
+      <div class="stat"><b>¥2,390</b><small>4 人总预算 · 周末</small></div>
+    </div>
+
+    <div class="verdict">
+      <span class="vtag">HARD</span>
+      <p style="margin:0">能走完，但缓冲只有山顶那 <b>55 分钟</b>。三个硬约束：<b>端记 14:00 收市</b>、<b>海运大厦 1.9 米限高</b>、<b>山顶 19:00 前的车位</b>。带老人建议把出发改到 08:00。</p>
+    </div>
+  </section>
+
+  <section class="section" id="route">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">01 / ROUTE</div>
+          <h2>路线：一条从西到东的弧线</h2>
+        </div>
+        <p>从珠海口岸过桥，先北上荃湾喝早茶，再折回尖沙咀，沿港岛南岸一路向东，最后爬太平山。地图数字对应下面的时间轴。</p>
+      </div>
+      <div class="map-card reveal">
+        <div id="map"><div class="map-fallback">正在加载地图…</div></div>
+        <div class="map-legend">
+          <span><i style="background:#ffb454"></i>大桥段</span>
+          <span><i style="background:#54d6c6"></i>市区段</span>
+          <span><i style="background:#ff6f8e;width:8px;height:8px;border-radius:50%"></i>停靠点</span>
+        </div>
+        <div class="map-tools"><button id="mapIsland" type="button">港岛</button><button id="mapReset" type="button">全览</button></div>
+      </div>
+      <div class="leg-strip reveal" id="legList" aria-label="路段列表"></div>
+    </div>
+  </section>
+
+  <section class="section" id="timeline">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">02 / TIMELINE</div>
+          <h2>一天的时间轴</h2>
+        </div>
+        <p>基准为 08:30 出发。时间是估算，口岸和停车各留了缓冲；真正不能拖的是端记的 14:00。</p>
+      </div>
+
+      <div class="timeline">
+        <article class="tl-item" id="stop-0">
+          <div class="tl-time">08:30<small>建议 08:00</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">START</span><h3>佛山出发</h3><span class="badge">自驾</span></div>
+            <p class="tl-desc">广珠西线 → 港珠澳大桥珠海口岸，约 <b>150 km / 2 小时</b>。出发前把许可证、保险单、驾照放在随手可拿的位置；老人坐第二排，上下车方便。</p>
+            <div class="tl-chips"><span class="chip ok">建议 08:00</span><span class="chip">150 km</span><span class="chip">2 h</span></div>
+            <div class="tl-note"><b>为什么提前：</b>08:30 出发，端记只剩 55 分钟；08:00 出发，能坐下来吃 80 分钟。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>150 km · 2 h</em><span class="dash"></span><span>广珠西线</span></div>
+
+        <article class="tl-item port" id="stop-1">
+          <div class="tl-time">10:30<small>出境 35 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">01</span><h3>珠海口岸 · 出境</h3><span class="badge port">口岸</span></div>
+            <p class="tl-desc">司机随车查验，乘客走旅检大厅。过了收费亭就是大桥，私家车 <b>¥150 / 程</b>。大桥 24 小时通关，不用赶点。</p>
+            <div class="tl-chips"><span class="chip">35 min</span><span class="chip">¥150 / 程</span><span class="chip ok">24 h 通关</span></div>
+            <div class="tl-note"><b>老人：</b>旅检大厅有无障碍通道，但下车到查验要走一段，预留 10 分钟。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>50 km · 50 min</em><span class="dash"></span><span>港珠澳大桥</span></div>
+
+        <article class="tl-item port" id="stop-2">
+          <div class="tl-time">11:55<small>入境 30 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">02</span><h3>香港口岸 · 入境</h3><span class="badge port">口岸</span></div>
+            <p class="tl-desc">大桥香港段仍按内地规则<b>靠右</b>行驶，过了口岸切回<b>靠左</b>。入境后导航设「川龙村」，别直接设「端记」——村口有两条小路。</p>
+            <div class="tl-chips"><span class="chip warn">靠右 → 靠左</span><span class="chip">30 min</span><span class="chip">易通行自动扣费</span></div>
+            <div class="tl-note"><b>驾驶：</b>香港红灯不能右转；环岛顺时针；双黄线严禁停车。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>29 km · 40 min</em><span class="dash"></span><span>北大屿山公路 → 荃锦公路</span></div>
+
+        <article class="tl-item food" id="stop-3">
+          <div class="tl-time">13:05<small>午餐 50 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">03</span><h3>端记茶楼 · 午餐</h3><span class="badge food">吃</span></div>
+            <p class="tl-desc">川龙村 57-58 号，<b>6:00–14:00</b>。全自助：自己拿茶叶冲茶、自己去蒸炉端点心。招牌是大粒烧卖、虾饺、粉果、山水豆腐花、西洋菜。二楼露台望大帽山，但老人坐地面层更稳。</p>
+            <div class="tl-chips"><span class="chip bad">硬截止 14:00</span><span class="chip ok">$50 抵餐费</span><span class="chip">自助点心</span><span class="chip">现金 / 八达通</span></div>
+            <div class="tl-note"><b>停车：</b>茶楼旁私人场 $50 / 次，票可当 $50 现金券抵餐费；村道单线，<b>先让老人小孩在门口下车</b>，司机再泊。</div>
+            <div class="tl-note"><b>风险：</b>13:20 后到，点心选择会明显变少；14:00 收市，不等人。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>16 km · 30 min</em><span class="dash"></span><span>荃锦公路 → 西九龙</span></div>
+
+        <article class="tl-item" id="stop-4">
+          <div class="tl-time">14:30<small>打卡 30 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">04</span><h3>海运大厦露天停车场</h3><span class="badge">打卡</span></div>
+            <p class="tl-desc">海港城 4/F 露天停车场，维港最经典的「圆框」机位就在这一层。停好车直接拍，30–35 分钟足够；不用进商场。</p>
+            <div class="tl-chips"><span class="chip bad">限高 1.9 m</span><span class="chip">$45 / h（周末）</span><span class="chip">30 min</span></div>
+            <div class="tl-note"><b>车型红灯：</b>高山 8 车高约 1.90 m，等于限高，实际进不去；改停<b>港威 P1（2.0 m）</b>，走连廊过来拍。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>13 km · 25 min</em><span class="dash"></span><span>红隧 → 香港仔隧道</span></div>
+
+        <article class="tl-item" id="stop-5">
+          <div class="tl-time">15:25<small>停留 30 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">05</span><h3>浅水湾</h3><span class="badge">海边</span></div>
+            <p class="tl-desc">海滩道停车场 $25 / $35，约 100 位；下车走 2 分钟到沙滩。影湾园露台、海边长椅都适合老人坐，不湿脚也能拍到好照片。</p>
+            <div class="tl-chips"><span class="chip">$35 / h（周末）</span><span class="chip">露天</span><span class="chip ok">坡道到海边</span></div>
+            <div class="tl-note"><b>备选：</b>满位就停 The Pulse（$28–44 / h，限高 2 m），走 5 分钟。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>5 km · 8 min</em><span class="dash"></span><span>浅水湾道</span></div>
+
+        <article class="tl-item" id="stop-6">
+          <div class="tl-time">16:05<small>停留 40 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">06</span><h3>赤柱广场</h3><span class="badge">市集</span></div>
+            <p class="tl-desc">赤柱广场停车 $28 / $39，限高 2.2 m；美利楼、卜公码头、赤柱市集都在步行 5 分钟内。海旁长廊平坦，适合慢慢走。</p>
+            <div class="tl-chips"><span class="chip">$39 / h（周末）</span><span class="chip ok">2.2 m</span><span class="chip">40 min</span></div>
+            <div class="tl-note"><b>老人：</b>广场有电梯；市集人多，走海旁一侧更舒服。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>11 km · 18 min</em><span class="dash"></span><span>大潭道 → 石澳道</span></div>
+
+        <article class="tl-item" id="stop-7">
+          <div class="tl-time">17:05<small>可选 20 min</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">07</span><h3>石澳 · 缓冲阀</h3><span class="badge">看时间</span></div>
+            <p class="tl-desc">石澳道露天停车场，$15 / $20 每半小时，无限高；泳滩、彩色屋、情人桥。这里不是必去点，是整条线的<b>时间缓冲阀</b>。</p>
+            <div class="tl-chips"><span class="chip warn">17:00 后排队</span><span class="chip">无限高</span><span class="chip">20 min</span></div>
+            <div class="tl-note"><b>规则：</b>如果 17:00 还没离开赤柱，直接跳过石澳上山。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>23 km · 35 min</em><span class="dash"></span><span>大潭道 → 东区走廊 → 山顶</span></div>
+
+        <article class="tl-item peak" id="stop-8">
+          <div class="tl-time">18:05<small>19:00 晚餐</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">08</span><h3>山顶广场 · 晚餐 + 夜景</h3><span class="badge peak">夜景</span></div>
+            <p class="tl-desc">山顶道 118 号，停车 $38 / h，车位有限，限高 2.1 m。<b>19:00 前到是安全线</b>。晚餐可选山顶广场 1–2/F 峰景餐厅、G/F 翠华，或凌霄阁 3/F 阿甘虾。</p>
+            <div class="tl-chips"><span class="chip ok">19:00 前</span><span class="chip">$38 / h</span><span class="chip ok">2.1 m</span><span class="chip">消费满 $300 免 3 h</span></div>
+            <div class="tl-note"><b>老人：</b>商场电梯直达观景层；山顶风大，带外套。缆车排队很长，自驾直接上山是对的。</div>
+          </div>
+        </article>
+
+        <div class="tl-leg"><em>40 km · 50 min</em><span class="dash"></span><span>西隧 → 青马大桥 → 口岸</span></div>
+
+        <article class="tl-item port" id="stop-9">
+          <div class="tl-time">20:45<small>回程 4 h 35</small></div>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head"><span class="tl-num">09</span><h3>回程 · 预计 01:20 到家</h3><span class="badge port">返程</span></div>
+            <p class="tl-desc">山顶 → 香港口岸 50 min（西隧 $20，20:00 后非繁忙）；出境 25 min；大桥 50 min；珠海口岸入境 30 min；佛山 2 h。全程约 <b>4 小时 35 分</b>。</p>
+            <div class="tl-chips"><span class="chip bad">到家 01:20</span><span class="chip">西隧 $20</span><span class="chip">青马免费</span></div>
+            <div class="tl-note"><b>建议：</b>20:15 前下山；老人如果在车上睡，服务区不停车，直接回佛山。</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="parking">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">03 / PARKING</div>
+          <h2>停车：六个场，一个 1.9 米的坑</h2>
+        </div>
+        <p>香港停车场普遍限高 1.9–2.2 米。如果你开高身 MPV，海运大厦这一站要单独确认；其余露天场都没问题。</p>
+      </div>
+
+      <div class="park-grid">
+        <div class="card reveal">
+          <h3>限高对照</h3>
+          <p class="sub">红线 = 高山 8 车高约 1.90 m</p>
+          <div class="height-chart">
+            <div class="haxis"><span style="left:0">0</span><span style="left:41.7%">1.0</span><span style="left:79.2%;color:#ff9db1">1.90</span><span style="left:100%">2.4 m</span></div>
+            <div class="hrow"><span class="hname">端记茶楼</span><div class="htrack"><div class="hbar open" style="width:100%">露天 ∞</div></div></div>
+            <div class="hrow"><span class="hname">海运大厦</span><div class="htrack"><div class="hbar bad" style="width:79.2%">1.90 m</div></div></div>
+            <div class="hrow"><span class="hname">港威 P1</span><div class="htrack"><div class="hbar warn" style="width:83.3%">2.00 m</div></div></div>
+            <div class="hrow"><span class="hname">浅水湾</span><div class="htrack"><div class="hbar open" style="width:100%">露天 ∞</div></div></div>
+            <div class="hrow"><span class="hname">赤柱广场</span><div class="htrack"><div class="hbar ok" style="width:91.7%">2.20 m</div></div></div>
+            <div class="hrow"><span class="hname">石澳</span><div class="htrack"><div class="hbar open" style="width:100%">露天 ∞</div></div></div>
+            <div class="hrow"><span class="hname">山顶广场</span><div class="htrack"><div class="hbar ok" style="width:87.5%">2.10 m</div></div></div>
+          </div>
+          <div class="hlegend">
+            <span><i style="background:#ff6f8e"></i>进不去</span>
+            <span><i style="background:#ffb454"></i>勉强 / 10 cm 余量</span>
+            <span><i style="background:#54d6c6"></i>安全</span>
+            <span><i style="background:#2f7f8f"></i>露天不限高</span>
+          </div>
+          <p class="hnote">限高数据来自停车场公开资料；车高以行驶证 / 实测为准，车顶行李架、天线会再占几厘米。</p>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table class="park-table">
+            <thead><tr><th>站点</th><th>停车场</th><th>限高</th><th>费率</th><th>停留</th><th>预计</th></tr></thead>
+            <tbody>
+              <tr><td><b>端记</b><span class="sm">川龙村</span></td><td>茶楼旁私人场</td><td>露天</td><td>$50 / 次，抵 $50 餐费</td><td>1 h</td><td class="num">$0 实付</td></tr>
+              <tr><td><b>海运大厦</b><span class="sm">海港城 4/F</span></td><td>海运大厦露天停车场</td><td style="color:#ff9db1">1.90 m</td><td><span id="rate-harbour">$45</span> / h</td><td>1 h</td><td class="num" id="cost-harbour">$45</td></tr>
+              <tr><td><b>浅水湾</b><span class="sm">海滩道</span></td><td>浅水湾停车场</td><td>露天</td><td><span id="rate-repulse">$35</span> / h</td><td>1 h</td><td class="num" id="cost-repulse">$35</td></tr>
+              <tr><td><b>赤柱</b><span class="sm">佳美道</span></td><td>赤柱广场停车场</td><td>2.20 m</td><td><span id="rate-stanley">$39</span> / h</td><td>1 h</td><td class="num" id="cost-stanley">$39</td></tr>
+              <tr><td><b>石澳</b><span class="sm">石澳道</span></td><td>石澳道露天停车场</td><td>露天</td><td><span id="rate-sheko">$40</span> / h</td><td>0.5 h</td><td class="num" id="cost-sheko">$20</td></tr>
+              <tr><td><b>山顶</b><span class="sm">山顶道 118 号</span></td><td>山顶广场停车场</td><td>2.10 m</td><td>$38 / h</td><td>3 h</td><td class="num">$114（可免）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="cost-note" style="margin-top:14px">名义停车 <b>HK$303</b>；端记 $50 抵餐费、山顶消费满 $300 免 3 小时，<b>实付约 HK$139</b>（周末）。平日约 HK$106。</p>
+    </div>
+  </section>
+
+  <section class="section" id="cost">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">04 / COST</div>
+          <h2>费用：4 人一车，约 ¥2,400</h2>
+        </div>
+        <p>按 4 人、1 台车、周末估算；含大桥、油费、停车、隧道与两顿饭，不含购物。汇率按 0.92 折算。</p>
+      </div>
+
+      <div class="seg" role="group" aria-label="日期类型">
+        <button class="seg-btn active" data-day="weekend" type="button">周末 / 假日</button>
+        <button class="seg-btn" data-day="weekday" type="button">平日</button>
+      </div>
+
+      <div class="cost-grid">
+        <div class="cost-hero reveal">
+          <div class="total-card">
+            <small>TOTAL · 4 PAX</small>
+            <div class="big" id="totalCny">¥2,391</div>
+            <p>人均约 <b id="perPerson">¥598</b> · 不含购物</p>
+          </div>
+          <div class="donut-wrap">
+            <div class="donut" id="donut"><div class="donut-c"><b id="donutTotal">¥2,391</b><small>4 人合计</small></div></div>
+            <div class="dlegend" id="dlegend"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>项目</th><th>明细</th><th>原币</th><th>折合 ¥</th></tr></thead>
+              <tbody>
+                <tr><td><b>大桥通行费</b></td><td>¥150 × 2 程</td><td class="num">¥300</td><td class="num">300</td></tr>
+                <tr><td><b>油费</b></td><td>约 540 km · 8.5 L/100km</td><td class="num">¥350</td><td class="num">350</td></tr>
+                <tr><td><b>停车</b></td><td>海运 + 浅水湾 + 赤柱 + 石澳</td><td class="num" id="parkHkd">HK$139</td><td class="num" id="parkCny">128</td></tr>
+                <tr><td><b>隧道费</b></td><td>红隧 + 香港仔 + 西隧</td><td class="num" id="tunnelHkd">HK$53</td><td class="num" id="tunnelCny">49</td></tr>
+                <tr><td><b>餐饮</b></td><td>端记 $400 + 山顶晚餐 $1,200 + 水/小食 $100</td><td class="num">HK$1,700</td><td class="num">1,564</td></tr>
+                <tr><td><b>合计</b></td><td>4 人 · 1 车</td><td class="num">—</td><td class="num" style="color:var(--teal);font-size:15px" id="totalCell">2,391</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="cost-note"><b>没算进去：</b>购物、山顶摩天台门票、超时停车、可能的超速/违停罚款。<b>现金：</b>端记、石澳部分场景只收现金或八达通，备 HK$500。<b>电车：</b>油费可降到约 ¥100，总预算约 ¥2,140。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="risk">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">05 / FEASIBILITY</div>
+          <h2>可行性：Hard，但不是不可能</h2>
+        </div>
+        <p>16 小时 50 分里，9 小时 10 分在车上、2 小时在口岸、3 小时 30 分在玩、2 小时 05 分在吃。真正的风险不在路程，在三个不能商量的时间点。</p>
+      </div>
+
+      <div class="reveal">
+        <div class="timebar" aria-label="时间分配">
+          <span style="width:54.7%;background:linear-gradient(90deg,#2b8f85,#54d6c6)">驾驶 9h10</span>
+          <span style="width:11.9%;background:linear-gradient(90deg,#7c6bd6,#9b8cff)">口岸 2h00</span>
+          <span style="width:20.9%;background:linear-gradient(90deg,#c98a35,#ffb454)">游玩 3h30</span>
+          <span style="width:12.5%;background:linear-gradient(90deg,#c04f68,#ff6f8e)">吃饭 2h05</span>
+        </div>
+        <div class="tb-legend">
+          <span><i style="background:#54d6c6"></i>驾驶 9h10</span>
+          <span><i style="background:#9b8cff"></i>口岸 2h00</span>
+          <span><i style="background:#ffb454"></i>游玩 3h30</span>
+          <span><i style="background:#ff6f8e"></i>吃饭 2h05</span>
+        </div>
+      </div>
+
+      <div class="risk-grid">
+        <div class="risk reveal">
+          <div class="risk-top"><h4>端记 14:00 收市</h4><span class="sev">高</span></div>
+          <p>13:05 到只剩 <b>55 分钟</b>；口岸慢 30 分钟，就变成“赶收市”。12:50 还没过香港口岸，启动 Plan B。</p>
+        </div>
+        <div class="risk reveal">
+          <div class="risk-top"><h4>海运大厦 1.9 米</h4><span class="sev">高</span></div>
+          <p>高山 8 车高约 <b>1.90 m</b>，等于限高，实际进不去。改停港威 P1（2.0 m），露天打卡位只能走连廊过去。</p>
+        </div>
+        <div class="risk mid reveal">
+          <div class="risk-top"><h4>石澳 17:00 后排队</h4><span class="sev">中</span></div>
+          <p>石澳道停车场假日 $20 / 半小时，车位先到先得，村道窄。<b>它是行程的缓冲阀</b>，先砍它，不要砍山顶。</p>
+        </div>
+        <div class="risk mid reveal">
+          <div class="risk-top"><h4>山顶 19:00 前的车位</h4><span class="sev">中</span></div>
+          <p>车位有限，假日 18:30 后常满。18:05 到是安全线；满位就排 10–15 分钟，别停山顶道（会被票控）。</p>
+        </div>
+        <div class="risk reveal">
+          <div class="risk-top"><h4>回程 01:20</h4><span class="sev">高</span></div>
+          <p>老人熬夜 + 夜间开大桥，比白天累一倍。建议 <b>20:15 下山</b>；如果晚餐拖到 20:30，打包走。</p>
+        </div>
+        <div class="risk mid reveal">
+          <div class="risk-top"><h4>8 次上下车</h4><span class="sev">中</span></div>
+          <p>浅水湾、赤柱、石澳都是“停车—走—拍—回车上”的节奏。老人如果走不了 100 米，把石澳删掉，赤柱只走海旁。</p>
+        </div>
+      </div>
+
+      <div class="callout reveal">
+        <span class="k">ONE FIX</span>
+        <p style="margin:0"><b>如果只能改一件事：把出发改到 08:00。</b>多 30 分钟不会让行程变轻松，但能让端记从“赶收市”变成“坐下来吃”，整条线的心态会完全不同。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="planb">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">06 / PLAN B</div>
+          <h2>如果……就……</h2>
+        </div>
+        <p>这条线不需要“完美执行”，需要的是提前想好每个卡点砍什么。下面六条，出发前看一眼就够。</p>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="plan-table">
+          <thead><tr><th>触发条件</th><th>动作</th></tr></thead>
+          <tbody>
+            <tr><td><b>12:50 还没过香港口岸</b></td><td>端记改荃湾市区（或直接去海港城吃），别硬赶 14:00；端记留给下次早茶。</td></tr>
+            <tr><td><b>海运大厦限高 / 满位</b></td><td>停港威 P1（2.0 m），走连廊到海运大厦 4/F 拍圆框；多走 8 分钟。</td></tr>
+            <tr><td><b>17:00 还没离开赤柱</b></td><td>跳过石澳，直接上山；省 45 分钟，山顶能从 18:05 提前到 17:20。</td></tr>
+            <tr><td><b>18:30 山顶满位</b></td><td>排队 10–15 分钟；不要停山顶道。实在满，改西九龙天际100（但就不是山顶了）。</td></tr>
+            <tr><td><b>20:15 还没吃完</b></td><td>打包，20:30 下山；夜景在餐厅窗边看，别为 10 分钟夜景熬到 01:30。</td></tr>
+            <tr><td><b>老人累了</b></td><td>砍石澳 + 海港城缩到 20 分钟，山顶提前到 17:30；少两个点，换一顿不赶的晚餐。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="checklist">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-num">07 / CHECKLIST</div>
+          <h2>出发前 48 小时</h2>
+        </div>
+        <p>点一下可以勾掉。证件和车高是最容易在口岸才发现的问题，先过一遍。</p>
+      </div>
+      <div class="check-grid">
+        <div class="card check-card reveal">
+          <h3>证件与车辆</h3>
+          <p class="sub">粤车南下 · 入境市区</p>
+          <label class="check"><input type="checkbox"><span><b>电子许可证 + 批准信</b>（A4 打印，挡风玻璃左下）</span></label>
+          <label class="check"><input type="checkbox"><span><b>预约确认凭证</b>（指定出行日子，单次入出）</span></label>
+          <label class="check"><input type="checkbox"><span><b>FT 香港车牌</b>（前后，查验点安装）</span></label>
+          <label class="check"><input type="checkbox"><span><b>香港正式驾照</b> + 内地驾照 + 港澳通行证（有效签注）</span></label>
+          <label class="check"><input type="checkbox"><span><b>香港第三者保险</b>（生效日覆盖当天）</span></label>
+          <label class="check"><input type="checkbox"><span><b>易通行</b>账户有余额（隧道自动扣费）</span></label>
+          <label class="check"><input type="checkbox"><span><b>车高确认</b>：海运大厦 1.9 m、山顶 2.1 m、赤柱 2.2 m</span></label>
+          <label class="check"><input type="checkbox"><span><b>八达通</b>（停车、便利店）；现金 HK$500</span></label>
+          <label class="check"><input type="checkbox"><span><b>大桥通行费</b> ¥150 × 2 程（电子支付）</span></label>
+        </div>
+        <div class="card check-card reveal">
+          <h3>老人与随身</h3>
+          <p class="sub">8 次上下车 · 16 小时</p>
+          <label class="check"><input type="checkbox"><span><b>常用药</b> + 病历卡 / 医保卡</span></label>
+          <label class="check"><input type="checkbox"><span><b>保暖外套</b>（山顶风大，商场冷气足）</span></label>
+          <label class="check"><input type="checkbox"><span><b>轮椅 / 拐杖</b>；折叠凳可选</span></label>
+          <label class="check"><input type="checkbox"><span><b>香港流量</b> / eSIM（导航 + 查车位）</span></label>
+          <label class="check"><input type="checkbox"><span><b>充电宝</b> + 车充</span></label>
+          <label class="check"><input type="checkbox"><span><b>水和小食</b>（口岸、车上）</span></label>
+          <label class="check"><input type="checkbox"><span><b>端记订位</b>：+852 2490 5246（问地面层）</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h5>Data & Sources</h5>
+      <div class="src">
+        <a href="https://www.td.gov.hk/sc/public_services/licences_and_permits/southboundtravel/stfgveiua/bft/index.html" target="_blank" rel="noopener">运输署 · 粤车南下预约出行</a>
+        <a href="https://www.td.gov.hk/sc/public_services/licences_and_permits/southboundtravel/stfgveiua/ag/index.html" target="_blank" rel="noopener">运输署 · 申请指引</a>
+        <a href="https://www.td.gov.hk/sc/transport_in_hong_kong/tunnels_and_bridges_n/tvt/index.html" target="_blank" rel="noopener">运输署 · 过海隧道收费</a>
+        <a href="https://www.td.gov.hk/sc/traffic_notices/index_id_88954.html" target="_blank" rel="noopener">运输署 · 大桥 ¥150/程</a>
+        <a href="https://www.trip.com/restaurant/china/hong-kong/detail/tuen-kee-chinese-restaurant-11745109/" target="_blank" rel="noopener">端记茶楼 · 6:00–14:00</a>
+        <a href="http://car4goal.com/parking/1388" target="_blank" rel="noopener">海运大厦停车场 · 1.9 m</a>
+        <a href="https://iknow.hk/knowledge/item/521" target="_blank" rel="noopener">浅水湾停车 · $25/$35</a>
+        <a href="https://kkleo.com/car-park/stanley-plaza" target="_blank" rel="noopener">赤柱广场停车 · 2.2 m</a>
+        <a href="https://kkleo.com/car-park/shek-o-road-open" target="_blank" rel="noopener">石澳道停车 · $15/$20</a>
+        <a href="https://www.hanglungmalls.com/parking?mall=peak-galleria" target="_blank" rel="noopener">山顶广场泊车 · $38/h</a>
+        <a href="https://project-osrm.org/" target="_blank" rel="noopener">OSRM · 路线基础车程</a>
+        <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth · 海岸线</a>
+      </div>
+    </div>
+    <div>
+      <h5>Notes</h5>
+      <p class="foot-note">价格为 2026-11 公开资料，现场为准；车程为 OSRM 基础车程加城市道路缓冲，实际以导航为准。地图为示意图，虚线为港珠澳大桥段。<br><br>生成于 2026-11-14 · 为家庭出行定制，不含个人证件信息。</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const ROUTES = [{"from":"zh","to":"hk","km":50.3,"min":44,"n":50,"coords":[[22.2126,113.54003],[22.21285,113.53968],[22.21247,113.54203],[22.21516,113.54413],[22.21594,113.54889],[22.21111,113.56258],[22.20378,113.56566],[22.20359,113.57159],[22.20255,113.57184],[22.2036,113.57328],[22.20373,113.57671],[22.2031,113.57973],[22.20373,113.58021],[22.20905,113.58023],[22.21193,113.5836],[22.24095,113.62886],[22.24601,113.63983],[22.25181,113.6619],[22.2549,113.67011],[22.26127,113.68108],[22.2707,113.69199],[22.27484,113.69782],[22.27837,113.70458],[22.28099,113.71203],[22.28242,113.7189],[22.28299,113.72561],[22.28259,113.84113],[22.28068,113.85012],[22.27538,113.86476],[22.27508,113.87069],[22.277,113.87627],[22.29109,113.89767],[22.29294,113.90179],[22.29359,113.90894],[22.29507,113.91262],[22.29525,113.91531],[22.29189,113.928],[22.292,113.9313],[22.2928,113.93347],[22.29511,113.93616],[22.29998,113.93827],[22.30275,113.94048],[22.30447,113.94058],[22.30769,113.93937],[22.31025,113.93985],[22.31238,113.94179],[22.31423,113.94717],[22.32001,113.94992],[22.31608,113.94846],[22.31667,113.94454]]},{"from":"hk","to":"tuenkee","km":28.6,"min":38,"n":55,"coords":[[22.31667,113.94454],[22.31605,113.94841],[22.31943,113.94976],[22.31609,113.94882],[22.31454,113.95161],[22.31422,113.95111],[22.31512,113.94862],[22.31428,113.94839],[22.31217,113.95385],[22.31203,113.95814],[22.30846,113.9617],[22.30346,113.9701],[22.30242,113.97284],[22.30214,113.97604],[22.31237,113.99365],[22.31462,113.99607],[22.31878,113.9991],[22.32086,114.00221],[22.32492,114.01201],[22.32505,114.01942],[22.32588,114.02257],[22.33629,114.03503],[22.33755,114.03953],[22.34049,114.04553],[22.34156,114.05117],[22.34764,114.06134],[22.35365,114.08243],[22.35518,114.08329],[22.35834,114.08172],[22.35952,114.08264],[22.36032,114.08687],[22.36078,114.09965],[22.3595,114.10345],[22.35932,114.10592],[22.36067,114.11335],[22.36381,114.11958],[22.36528,114.12086],[22.37021,114.12331],[22.37308,114.12289],[22.37472,114.12122],[22.3749,114.12002],[22.37621,114.12017],[22.37589,114.11761],[22.37745,114.11375],[22.38293,114.11177],[22.38385,114.10967],[22.38347,114.10855],[22.38483,114.10838],[22.38856,114.1049],[22.38969,114.10469],[22.38856,114.10506],[22.38499,114.11137],[22.38512,114.11217],[22.38335,114.11328],[22.38248,114.11505]]},{"from":"tuenkee","to":"harbour","km":16.2,"min":23,"n":36,"coords":[[22.38248,114.11505],[22.38335,114.11328],[22.38512,114.11217],[22.38499,114.11137],[22.38856,114.10506],[22.38969,114.10469],[22.38856,114.1049],[22.38483,114.10838],[22.38347,114.10855],[22.38385,114.10967],[22.38293,114.11177],[22.37745,114.11375],[22.37596,114.11731],[22.37588,114.12093],[22.37281,114.12312],[22.36987,114.12326],[22.36509,114.1208],[22.3628,114.11826],[22.35829,114.12055],[22.3528,114.12619],[22.34712,114.12525],[22.34523,114.12567],[22.34207,114.13015],[22.3374,114.1327],[22.33513,114.13493],[22.3288,114.15004],[22.32628,114.15373],[22.32336,114.15663],[22.31998,114.15885],[22.31064,114.16329],[22.30793,114.16402],[22.30306,114.16409],[22.30303,114.16812],[22.29936,114.16852],[22.29916,114.16746],[22.29542,114.16828]]},{"from":"harbour","to":"repulse","km":13.1,"min":17,"n":38,"coords":[[22.29542,114.16828],[22.29564,114.16935],[22.2945,114.16961],[22.29527,114.1749],[22.30267,114.1769],[22.30267,114.17978],[22.30531,114.18141],[22.30655,114.18075],[22.30665,114.18121],[22.30548,114.1816],[22.30095,114.18046],[22.28416,114.18318],[22.282,114.1815],[22.28155,114.18012],[22.27908,114.1813],[22.27655,114.18112],[22.27407,114.17949],[22.26945,114.18081],[22.25451,114.18009],[22.25071,114.17764],[22.24924,114.17548],[22.24635,114.17757],[22.24519,114.17928],[22.24533,114.18198],[22.24583,114.18276],[22.2453,114.1845],[22.24606,114.18566],[22.24585,114.18645],[22.24387,114.18833],[22.24231,114.18819],[22.24121,114.18715],[22.23979,114.18737],[22.23847,114.18917],[22.23695,114.19015],[22.23679,114.1921],[22.23931,114.19336],[22.23856,114.19393],[22.23719,114.19704]]},{"from":"repulse","to":"stanley","km":4.8,"min":6,"n":21,"coords":[[22.23719,114.19704],[22.23665,114.19785],[22.23868,114.2002],[22.23835,114.1992],[22.23655,114.19939],[22.23414,114.20107],[22.23271,114.19988],[22.23061,114.19951],[22.22824,114.20216],[22.22523,114.2036],[22.22499,114.20529],[22.22353,114.20776],[22.22382,114.20905],[22.22551,114.2096],[22.22391,114.21131],[22.22471,114.21232],[22.22502,114.21462],[22.22176,114.21121],[22.22118,114.21147],[22.22085,114.21267],[22.21844,114.21316]]},{"from":"stanley","to":"sheko","km":11.3,"min":15,"n":38,"coords":[[22.21844,114.21316],[22.22085,114.21267],[22.22122,114.21142],[22.22199,114.2113],[22.22647,114.21676],[22.22999,114.218],[22.22932,114.22032],[22.232,114.22239],[22.23532,114.22287],[22.23833,114.22126],[22.243,114.22203],[22.24496,114.22104],[22.24777,114.22119],[22.24795,114.22297],[22.25112,114.22421],[22.25093,114.22513],[22.25393,114.22749],[22.25725,114.22823],[22.25571,114.23052],[22.24918,114.2302],[22.24825,114.23293],[22.24678,114.23429],[22.24359,114.23567],[22.24368,114.23729],[22.24268,114.23819],[22.24187,114.23841],[22.24066,114.23761],[22.23905,114.23827],[22.23677,114.23805],[22.23238,114.24032],[22.22837,114.23936],[22.22627,114.24003],[22.22479,114.24159],[22.22451,114.24338],[22.2279,114.24681],[22.22897,114.24623],[22.23039,114.24672],[22.23001,114.24675]]},{"from":"sheko","to":"peak","km":23.0,"min":29,"n":75,"coords":[[22.23001,114.24675],[22.23039,114.24672],[22.22897,114.24623],[22.2279,114.24681],[22.22451,114.24338],[22.22479,114.24159],[22.22633,114.24],[22.22837,114.23936],[22.23238,114.24032],[22.23677,114.23805],[22.23905,114.23827],[22.24066,114.23761],[22.24187,114.23841],[22.24272,114.23818],[22.2437,114.23725],[22.24359,114.23567],[22.24678,114.23429],[22.24825,114.23293],[22.24921,114.23018],[22.25568,114.23052],[22.25633,114.23013],[22.25763,114.22803],[22.25812,114.2256],[22.263,114.22542],[22.26317,114.22637],[22.26202,114.22781],[22.26266,114.2298],[22.26684,114.23217],[22.27101,114.23327],[22.27547,114.23071],[22.27678,114.22829],[22.27886,114.22763],[22.28184,114.22361],[22.28388,114.22192],[22.28744,114.22123],[22.28828,114.22022],[22.28937,114.2149],[22.29279,114.20882],[22.29406,114.20453],[22.29293,114.19585],[22.29188,114.1937],[22.28554,114.18719],[22.28385,114.18452],[22.28189,114.17178],[22.28055,114.17076],[22.28067,114.1686],[22.27956,114.16764],[22.2795,114.16574],[22.28055,114.16362],[22.27777,114.16058],[22.27634,114.15538],[22.2756,114.15503],[22.27512,114.15566],[22.27456,114.15766],[22.27386,114.15832],[22.27395,114.15962],[22.27318,114.1582],[22.27364,114.15917],[22.27287,114.16179],[22.2698,114.16374],[22.26922,114.16548],[22.2666,114.16006],[22.26648,114.15712],[22.26523,114.15591],[22.26427,114.15657],[22.26326,114.15558],[22.26341,114.15395],[22.26435,114.15476],[22.26542,114.15467],[22.26603,114.15372],[22.26591,114.15239],[22.26731,114.15121],[22.26894,114.15129],[22.26978,114.14969],[22.27048,114.14968]]},{"from":"peak","to":"hk","km":40.5,"min":43,"n":94,"coords":[[22.27048,114.14968],[22.27046,114.15008],[22.26954,114.15014],[22.26894,114.15129],[22.26731,114.15121],[22.26591,114.15239],[22.26603,114.15372],[22.26542,114.15467],[22.26428,114.15473],[22.26365,114.15387],[22.26307,114.15468],[22.26413,114.15651],[22.26519,114.15589],[22.26667,114.15744],[22.26659,114.16001],[22.26919,114.16548],[22.2698,114.16374],[22.27285,114.16183],[22.27364,114.15917],[22.27317,114.15822],[22.27395,114.15962],[22.27386,114.15832],[22.27456,114.15766],[22.27549,114.15474],[22.27649,114.15508],[22.27759,114.15454],[22.27765,114.15279],[22.27881,114.15312],[22.27967,114.15079],[22.28066,114.1504],[22.28165,114.14871],[22.28157,114.1478],[22.28332,114.14541],[22.2843,114.14518],[22.28375,114.14407],[22.2848,114.14129],[22.28406,114.14036],[22.28394,114.13887],[22.28466,114.13833],[22.28477,114.1373],[22.28576,114.13756],[22.28582,114.13897],[22.28835,114.13852],[22.2904,114.1408],[22.2893,114.14405],[22.2899,114.14613],[22.30241,114.15766],[22.30827,114.16112],[22.3108,114.16153],[22.31384,114.16124],[22.32063,114.15835],[22.32527,114.15469],[22.32897,114.14935],[22.33394,114.13672],[22.33546,114.13425],[22.33775,114.13227],[22.34196,114.13004],[22.34524,114.12528],[22.34708,114.12445],[22.35061,114.12393],[22.35227,114.12164],[22.35212,114.11888],[22.3458,114.10601],[22.34471,114.10147],[22.34463,114.09276],[22.34571,114.08961],[22.34759,114.08752],[22.35247,114.0856],[22.35367,114.08397],[22.34749,114.0614],[22.34137,114.05123],[22.34045,114.04583],[22.33747,114.0397],[22.3356,114.03411],[22.32759,114.02546],[22.32576,114.02263],[22.3249,114.01944],[22.32503,114.01404],[22.32452,114.01102],[22.32022,114.00124],[22.31842,113.99895],[22.31253,113.99407],[22.30648,113.98409],[22.30231,113.97871],[22.30113,113.97591],[22.30217,113.9721],[22.30881,113.96092],[22.31188,113.95379],[22.31371,113.95226],[22.31447,113.94944],[22.31598,113.94878],[22.31925,113.94981],[22.31605,113.94841],[22.31667,113.94454]]},{"from":"hk","to":"zh","km":55.1,"min":53,"n":64,"coords":[[22.31667,113.94454],[22.31605,113.94841],[22.31943,113.94976],[22.31454,113.94872],[22.3137,113.95172],[22.31415,113.95319],[22.31332,113.95696],[22.31501,113.95824],[22.31729,113.95896],[22.31981,113.95891],[22.32168,113.95321],[22.32214,113.95095],[22.32177,113.95001],[22.31452,113.94724],[22.31351,113.94571],[22.31254,113.94175],[22.31027,113.9396],[22.30786,113.93914],[22.30445,113.94041],[22.30298,113.94032],[22.30012,113.93803],[22.29521,113.93582],[22.29302,113.93322],[22.29203,113.93045],[22.29202,113.92796],[22.2954,113.91542],[22.29522,113.91261],[22.29375,113.90893],[22.29304,113.90172],[22.29136,113.89786],[22.27696,113.87595],[22.27525,113.87104],[22.27548,113.86489],[22.2808,113.85016],[22.2827,113.84112],[22.2831,113.7253],[22.28235,113.71771],[22.28052,113.71002],[22.27757,113.70254],[22.27398,113.6962],[22.26188,113.68169],[22.25602,113.67215],[22.25191,113.66182],[22.24616,113.63982],[22.24407,113.63449],[22.24088,113.62849],[22.21346,113.58548],[22.21166,113.58184],[22.21049,113.58089],[22.20373,113.5804],[22.20233,113.57898],[22.20042,113.57882],[22.1989,113.57031],[22.19532,113.57001],[22.20377,113.56919],[22.20352,113.56513],[22.21109,113.56239],[22.2116,113.56039],[22.21089,113.55946],[22.21247,113.55831],[22.21597,113.54837],[22.21495,113.5439],[22.21239,113.54219],[22.2126,113.54003]]}];
+const LAND = [[[22.4573,114.21095],[22.45498,114.21559],[22.44794,114.21713],[22.44949,114.20997],[22.45409,114.20932],[22.45808,114.20224],[22.45653,114.1906],[22.45177,114.1867],[22.44806,114.16749],[22.44322,114.17652],[22.4206,114.21176],[22.41275,114.20997],[22.40888,114.21485],[22.39867,114.20932],[22.40034,114.21559],[22.41502,114.2234],[22.42475,114.23422],[22.43537,114.23821],[22.43553,114.24383],[22.43073,114.25147],[22.43073,114.26718],[22.42552,114.26938],[22.41596,114.26718],[22.40965,114.27255],[22.41983,114.27646],[22.42601,114.28899],[22.444,114.27646],[22.45331,114.28899],[22.45653,114.30161],[22.46,114.30127],[22.46,114.33597],[22.44636,114.33806],[22.44001,114.33277],[22.43159,114.33741],[22.43769,114.34278],[22.42292,114.34758],[22.42369,114.35231],[22.44099,114.35157],[22.46,114.35939],[22.46,114.36],[22.34229,114.36],[22.33242,114.3576],[22.33946,114.35231],[22.35192,114.35231],[22.34577,114.34197],[22.35269,114.33904],[22.35977,114.33277],[22.37531,114.33432],[22.38076,114.3204],[22.38939,114.31861],[22.38377,114.31007],[22.38158,114.30006],[22.39098,114.28598],[22.39098,114.278],[22.37844,114.26873],[22.36363,114.27337],[22.35501,114.2798],[22.34805,114.27646],[22.35578,114.26718],[22.36595,114.26637],[22.36209,114.25839],[22.3559,114.25554],[22.34634,114.2658],[22.32071,114.27255],[22.3192,114.27719],[22.31656,114.29127],[22.30516,114.29208],[22.30516,114.29599],[22.30671,114.30388],[22.29731,114.31162],[22.29076,114.30567],[22.28563,114.2977],[22.28795,114.29054],[22.28718,114.28899],[22.28168,114.28972],[22.27391,114.28956],[22.27705,114.30006],[22.26919,114.30315],[22.26215,114.30315],[22.25829,114.29672],[22.26459,114.28899],[22.27045,114.27833],[22.27936,114.2798],[22.29576,114.27337],[22.30195,114.26482],[22.31599,114.26637],[22.32233,114.25554],[22.30516,114.25147],[22.29576,114.25302],[22.28168,114.23894],[22.29186,114.22812],[22.31057,114.21176],[22.30117,114.21485],[22.30117,114.21249],[22.31826,114.19549],[22.30874,114.18653],[22.30195,114.19142],[22.2989,114.19142],[22.30195,114.18369],[22.29442,114.18165],[22.29108,114.17652],[22.28872,114.17189],[22.29418,114.16725],[22.30549,114.16822],[22.31057,114.1657],[22.31521,114.16489],[22.31521,114.15952],[22.32225,114.15952],[22.32852,114.15219],[22.33601,114.13819],[22.34223,114.12436],[22.33714,114.12355],[22.35269,114.11337],[22.36595,114.11101],[22.36986,114.10483],[22.36302,114.0975],[22.36595,114.07911],[22.36286,114.0783],[22.36286,114.0704],[22.359,114.06723],[22.36131,114.05795],[22.359,114.05022],[22.35501,114.03989],[22.35037,114.02052],[22.35346,114.01498],[22.359,114.01498],[22.359,113.99863],[22.36408,113.99187],[22.36677,113.98268],[22.37922,113.97674],[22.37999,113.97291],[22.38707,113.97063],[22.38068,113.96437],[22.37206,113.97462],[22.36986,113.95493],[22.36209,113.94483],[22.36909,113.93067],[22.36909,113.92596],[22.37612,113.9144],[22.38784,113.91831],[22.39867,113.91057],[22.40876,113.89698],[22.41861,113.90943],[22.41983,113.93067],[22.42678,113.94101],[22.44949,113.95411],[22.45885,113.97755],[22.46,113.97837],[22.46,114.21043],[22.4573,114.21095]],[[22.43758,113.54636],[22.39584,113.55157],[22.38076,113.55812],[22.37132,113.58164],[22.37018,113.61036],[22.35053,113.59946],[22.34154,113.59726],[22.32575,113.59669],[22.31615,113.5923],[22.30952,113.58302],[22.30073,113.57358],[22.28483,113.5747],[22.26664,113.57721],[22.26346,113.58375],[22.25342,113.58999],[22.23788,113.58765],[22.23373,113.5612],[22.21901,113.55286],[22.22175,113.53858],[22.21304,113.52296],[22.20226,113.52988],[22.19131,113.5215],[22.17164,113.49723],[22.15514,113.48374],[22.158,113.45921],[22.17415,113.44],[22.46,113.44],[22.46,113.55481],[22.43758,113.54636]],[[22.2049,113.8392],[22.21796,113.8379],[22.22862,113.83733],[22.2342,113.8392],[22.2342,113.84921],[22.24413,113.84921],[22.246,113.85678],[22.25227,113.85678],[22.25678,113.8506],[22.26345,113.85987],[22.26899,113.86695],[22.27074,113.8676],[22.27228,113.8768],[22.27936,113.88396],[22.29271,113.89251],[22.29271,113.91131],[22.29186,113.92148],[22.28486,113.9284],[22.28872,113.93865],[22.30117,113.96192],[22.29808,113.97674],[22.30903,113.98373],[22.31057,113.99244],[22.32225,113.99952],[22.33552,114.01735],[22.32852,114.02052],[22.34577,114.04379],[22.34223,114.04933],[22.33633,114.05486],[22.32852,114.05177],[22.31993,114.05022],[22.32315,114.04615],[22.32457,114.03834],[22.32457,114.03142],[22.30899,114.02963],[22.31135,114.01271],[22.29808,114.01271],[22.30191,114.02215],[22.28905,114.01759],[22.26459,114.01889],[22.26459,114.00416],[22.26777,113.99537],[22.2521,114.00725],[22.2412,113.99244],[22.22708,114.01498],[22.21613,114.00017],[22.20824,113.98194],[22.21532,113.98064],[22.23725,113.98064],[22.23725,113.94565],[22.22398,113.9284],[22.22398,113.92148],[22.21922,113.91831],[22.21691,113.9284],[22.21076,113.9284],[22.20502,113.91912],[22.20401,113.90626],[22.21532,113.89405],[22.2224,113.89251],[22.22,113.88396],[22.21308,113.87371],[22.2014,113.85914],[22.19709,113.84645],[22.2049,113.8392]],[[22.27936,114.22177],[22.28091,114.22812],[22.27782,114.23585],[22.26459,114.24366],[22.25906,114.25147],[22.24889,114.25147],[22.24189,114.24529],[22.23253,114.24903],[22.22398,114.25375],[22.2224,114.24903],[22.2036,114.25611],[22.20128,114.24366],[22.20523,114.24049],[22.21149,114.23276],[22.22199,114.23268],[22.23359,114.2295],[22.23884,114.22267],[22.23432,114.21681],[22.23253,114.22267],[22.22476,114.22267],[22.22398,114.21868],[22.21613,114.21176],[22.206,114.21868],[22.19896,114.21559],[22.19188,114.21949],[22.18956,114.20769],[22.20523,114.20606],[22.20755,114.20932],[22.21239,114.20655],[22.20755,114.19606],[22.20995,114.19142],[22.21532,114.19606],[22.21922,114.18906],[22.22553,114.1937],[22.23098,114.19142],[22.23253,114.18271],[22.24103,114.18385],[22.2333,114.17115],[22.22785,114.16725],[22.22785,114.16489],[22.2333,114.16261],[22.24038,114.16098],[22.24502,114.15219],[22.24575,114.136],[22.24889,114.12908],[22.25674,114.12501],[22.26138,114.12355],[22.26919,114.11883],[22.27151,114.11256],[22.27782,114.11337],[22.27936,114.11565],[22.28563,114.12908],[22.28872,114.13909],[22.28563,114.14991],[22.28168,114.15707],[22.27936,114.1657],[22.27936,114.17888],[22.28718,114.18816],[22.29186,114.19679],[22.28824,114.20639],[22.28563,114.21559],[22.27936,114.22177]],[[22.16075,113.56943],[22.16075,113.57407],[22.15611,113.57407],[22.1529,113.57179],[22.15058,113.56788],[22.15058,113.56324],[22.14155,113.56023],[22.13732,113.57252],[22.13963,113.57797],[22.13809,113.57797],[22.13504,113.57488],[22.1319,113.57976],[22.13194,113.58595],[22.12722,113.58749],[22.12486,113.58749],[22.12332,113.58359],[22.12665,113.57748],[22.12092,113.57797],[22.11937,113.57407],[22.12014,113.57097],[22.12336,113.56674],[22.11738,113.56666],[22.11262,113.5652],[22.10769,113.56633],[22.10692,113.56324],[22.11115,113.55738],[22.10769,113.55226],[22.10615,113.55152],[22.10537,113.54916],[22.10537,113.5468],[22.10769,113.54371],[22.11327,113.54111],[22.11424,113.54526],[22.14073,113.54233],[22.14879,113.53411],[22.15253,113.53224],[22.1612,113.53443],[22.16234,113.54143],[22.1638,113.54298],[22.16584,113.55291],[22.16303,113.5586],[22.16075,113.56943]],[[22.43804,113.63488],[22.43857,113.6496],[22.43202,113.65787],[22.42375,113.65783],[22.41373,113.65329],[22.41142,113.64242],[22.40019,113.64235],[22.3961,113.63145],[22.39142,113.62119],[22.39796,113.61227],[22.41334,113.61044],[22.43047,113.61182],[22.43987,113.62338],[22.43804,113.63488]],[[22.10151,113.46599],[22.10814,113.46485],[22.11408,113.47153],[22.12727,113.51889],[22.12588,113.52711],[22.12031,113.53272],[22.11294,113.53093],[22.10611,113.52711],[22.1,113.53021],[22.1,113.4698],[22.10151,113.46599]],[[22.17707,114.11085],[22.18574,114.11411],[22.21613,114.11411],[22.21597,114.10426],[22.2224,114.10637],[22.23578,114.1067],[22.23334,114.11329],[22.22187,114.11744],[22.21345,114.12574],[22.21613,114.13282],[22.20995,114.13282],[22.20523,114.12574],[22.20604,114.13819],[22.20604,114.14967],[22.2036,114.15463],[22.19611,114.14308],[22.19111,114.13909],[22.1787,114.14536],[22.17878,114.13738],[22.17707,114.11085]],[[22.22077,113.53891],[22.21768,113.54453],[22.21613,113.54453],[22.21385,113.55071],[22.21149,113.5538],[22.20755,113.55559],[22.20356,113.55681],[22.20441,113.55152],[22.20205,113.54843],[22.19973,113.54916],[22.19896,113.55071],[22.20246,113.55714],[22.19664,113.5538],[22.19587,113.5538],[22.19741,113.55226],[22.19587,113.55071],[22.1942,113.55152],[22.18956,113.55152],[22.18806,113.54843],[22.18419,113.54298],[22.18264,113.53989],[22.18264,113.53598],[22.1787,113.53289],[22.1787,113.5289],[22.17373,113.52475],[22.1837,113.51987],[22.18488,113.52019],[22.1905,113.52215],[22.19363,113.5254],[22.20152,113.53037],[22.20755,113.53525],[22.21076,113.5337],[22.21076,113.53207],[22.20917,113.53289],[22.20755,113.52735],[22.21255,113.52434],[22.21385,113.5289],[22.21463,113.5289],[22.21463,113.53525],[22.21707,113.53647],[22.22077,113.53891]],[[22.32225,114.08904],[22.33946,114.08684],[22.34964,114.07911],[22.35578,114.07911],[22.359,114.0853],[22.35578,114.09376],[22.35346,114.10255],[22.34728,114.10564],[22.34024,114.10873],[22.32612,114.10483],[22.32225,114.08904]],[[22.34256,114.30779],[22.34577,114.30543],[22.359,114.3047],[22.36522,114.30315],[22.37612,114.31088],[22.37612,114.31633],[22.359,114.31951],[22.35037,114.32887],[22.34256,114.32887],[22.34256,114.30779]],[[22.15457,114.25611],[22.16234,114.25066],[22.17166,114.25611],[22.1787,114.26637],[22.17166,114.26946],[22.16458,114.26946],[22.16234,114.26409],[22.15457,114.25611]],[[22.24811,114.29599],[22.24266,114.29851],[22.23725,114.29518],[22.23253,114.28826],[22.23802,114.28517],[22.23884,114.28134],[22.24974,114.28289],[22.24889,114.28289],[22.25442,114.29599],[22.24811,114.29599]],[[22.31289,113.93946],[22.3098,113.93613],[22.3004,113.93377],[22.29271,113.93149],[22.29271,113.92994],[22.30117,113.92994],[22.31135,113.92368],[22.31367,113.92368],[22.31599,113.92994],[22.32225,113.93304],[22.31843,113.93613],[22.32225,113.94256],[22.31289,113.93946]],[[22.2412,114.03834],[22.24974,114.03142],[22.25519,114.02052],[22.25597,114.02369],[22.25597,114.04225],[22.2412,114.04298],[22.2412,114.03834]],[[22.3238,114.31951],[22.33633,114.31633],[22.33946,114.3235],[22.33714,114.32887],[22.32612,114.33123],[22.3238,114.31951]],[[22.45808,114.26409],[22.45177,114.25375],[22.45177,114.24594],[22.46,114.23922],[22.46,114.26537],[22.45808,114.26409]],[[22.20523,114.02679],[22.20523,114.03452],[22.19587,114.03142],[22.19896,114.02679],[22.19188,114.0158],[22.19819,114.01498],[22.20283,114.02215],[22.20677,114.02215],[22.20523,114.02679]],[[22.34882,114.29599],[22.35346,114.28972],[22.36522,114.28899],[22.36909,114.28899],[22.3714,114.29282],[22.36209,114.29599],[22.34882,114.29599]],[[22.17556,114.24285],[22.18496,114.24285],[22.18496,114.24838],[22.18651,114.25375],[22.18187,114.25611],[22.17715,114.25147],[22.17715,114.24903],[22.17556,114.24285]],[[22.18651,113.98911],[22.18806,113.98447],[22.19343,113.97755],[22.19896,113.98373],[22.19896,113.98764],[22.19188,113.99073],[22.18651,113.98911]],[[22.23098,114.15219],[22.23648,114.14446],[22.2412,114.14218],[22.24189,114.14218],[22.23884,114.15634],[22.23176,114.15634],[22.23098,114.15219]],[[22.33946,114.05641],[22.34728,114.05486],[22.35192,114.05795],[22.34882,114.06577],[22.34577,114.06267],[22.33946,114.06178],[22.33946,114.05641]],[[22.31599,114.14137],[22.3168,114.14536],[22.31367,114.14682],[22.31057,114.14137],[22.31367,114.13673],[22.31521,114.12981],[22.31599,114.12908],[22.31993,114.13437],[22.31599,114.14137]],[[22.15843,113.89715],[22.16303,113.89959],[22.16616,113.91057],[22.15843,113.91057],[22.15843,113.89715]],[[22.28563,114.03834],[22.28563,114.04298],[22.28168,114.04298],[22.27936,114.03452],[22.28872,114.03452],[22.28872,114.03525],[22.29108,114.0407],[22.28563,114.03834]],[[22.36986,113.87989],[22.3839,113.87607],[22.37922,113.88396],[22.36986,113.87989]],[[22.3098,114.34669],[22.32225,114.35304],[22.32225,114.35605],[22.31289,114.35231],[22.3098,114.34669]],[[22.17638,113.91057],[22.1787,113.90333],[22.18651,113.90333],[22.1787,113.91057],[22.17638,113.91057]],[[22.26996,114.26482],[22.27936,114.26564],[22.27619,114.27255],[22.26996,114.26482]],[[22.45271,113.89034],[22.46,113.88721],[22.46,113.896],[22.45271,113.89034]],[[22.25674,114.04298],[22.26215,114.04534],[22.26215,114.05022],[22.26138,114.05177],[22.25674,114.04786],[22.25674,114.04298]],[[22.25906,114.34669],[22.26305,114.34441],[22.26919,114.34669],[22.26459,114.34995],[22.25906,114.34669]],[[22.28014,114.06967],[22.28563,114.06967],[22.28563,114.07195],[22.28408,114.07439],[22.28014,114.0735],[22.28014,114.06967]]];
+
+/* ---------- map ---------- */
+(function(){
+  const el = document.getElementById('map');
+  if(!window.L){ el.innerHTML = '<div class="map-fallback">地图库未加载（需要网络加载 Leaflet）。<br>时间轴和费用不受影响。</div>'; return; }
+  el.innerHTML = '';
+  const map = L.map('map', {zoomControl:false, attributionControl:false, scrollWheelZoom:false, preferCanvas:true});
+  L.control.zoom({position:'bottomright'}).addTo(map);
+  L.control.attribution({position:'bottomleft', prefix:false}).addTo(map)
+    .addAttribution('海岸线 <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a> · 路线 <a href="https://project-osrm.org/" target="_blank" rel="noopener">OSRM</a>');
+
+  if(LAND && LAND.length){
+    LAND.forEach(function(ring){
+      L.polygon(ring, {color:'#3a5f86', weight:1.1, fillColor:'#16263e', fillOpacity:1, interactive:false}).addTo(map);
+    });
+  }
+
+  const stops = [
+    {n:'01', lat:22.2126, lng:113.5400, name:'珠海口岸', time:'10:30', kind:'port', desc:'出境 35 min · 大桥 ¥150/程', anchor:'stop-1'},
+    {n:'02', lat:22.3165, lng:113.9445, name:'香港口岸', time:'11:55', kind:'port', desc:'入境 30 min · 靠左行驶', anchor:'stop-2'},
+    {n:'03', lat:22.3830, lng:114.1160, name:'端记茶楼', time:'13:05', kind:'food', desc:'午餐 · 14:00 收市', anchor:'stop-3'},
+    {n:'04', lat:22.2947, lng:114.1675, name:'海运大厦', time:'14:30', kind:'', desc:'露天停车场 · 限高 1.9 m', anchor:'stop-4'},
+    {n:'05', lat:22.2365, lng:114.1965, name:'浅水湾', time:'15:25', kind:'', desc:'海滩 · 停留 30 min', anchor:'stop-5'},
+    {n:'06', lat:22.2183, lng:114.2130, name:'赤柱广场', time:'16:05', kind:'', desc:'市集 · 停留 40 min', anchor:'stop-6'},
+    {n:'07', lat:22.2300, lng:114.2470, name:'石澳', time:'17:05', kind:'', desc:'缓冲阀 · 看时间决定', anchor:'stop-7'},
+    {n:'08', lat:22.2703, lng:114.1497, name:'山顶广场', time:'18:05', kind:'peak', desc:'晚餐 + 夜景 · 19:00 前', anchor:'stop-8'}
+  ];
+
+  const labels = [
+    ['大屿山',22.268,113.925],['九龙',22.328,114.172],['香港岛',22.207,114.176],
+    ['新界',22.401,114.095]
+  ];
+  labels.forEach(function(l){
+    L.tooltip({permanent:true, direction:'center', className:'map-label'}).setLatLng([l[1],l[2]]).setContent(l[0]).addTo(map);
+  });
+
+  L.tooltip({permanent:true, direction:'right', className:'map-edge'}).setLatLng([22.342,113.556]).setContent('← 佛山 150 km').addTo(map);
+  L.control.scale({imperial:false, position:'bottomleft'}).addTo(map);
+
+  const routeLayers = [];
+  ROUTES.forEach(function(leg){
+    const isBridge = (leg.from==='zh' && leg.to==='hk') || (leg.from==='hk' && leg.to==='zh');
+    if(leg.from==='hk' && leg.to==='zh') return;
+    const line = L.polyline(leg.coords, {
+      color: isBridge ? '#ffb454' : '#54d6c6',
+      weight: isBridge ? 3.6 : 3.6,
+      opacity: isBridge ? .95 : .85,
+      dashArray: isBridge ? '7 8' : null,
+      lineCap:'round', lineJoin:'round'
+    }).addTo(map);
+    routeLayers.push(line);
+  });
+
+  stops.forEach(function(s){
+    const cls = 'mk ' + (s.kind || '');
+    const icon = L.divIcon({className:'mk-wrap', html:'<div class="'+cls+'">'+s.n+'</div>', iconSize:[30,30], iconAnchor:[15,15]});
+    const m = L.marker([s.lat,s.lng], {icon:icon, title:s.name}).addTo(map);
+    m.bindPopup('<div class="pop"><div class="pop-k">'+s.n+' · '+s.time+'</div><div class="pop-t">'+s.name+'</div><div class="pop-d">'+s.desc+'</div><a href="#'+s.anchor+'">看时间轴 →</a></div>', {closeButton:false});
+  });
+
+  const all = [];
+  ROUTES.forEach(function(r){ r.coords.forEach(function(c){ all.push(c); }); });
+  const bounds = L.latLngBounds(all);
+  map.fitBounds(bounds, {padding:[26,26]});
+  document.getElementById('mapReset').addEventListener('click', function(){ map.fitBounds(bounds, {padding:[26,26]}); });
+  document.getElementById('mapIsland').addEventListener('click', function(){
+    map.fitBounds(L.latLngBounds([[22.195,114.135],[22.315,114.262]]), {padding:[34,34]});
+  });
+
+  /* side list */
+  const legs = [
+    {a:'珠海口岸', b:'香港口岸', km:50, min:50, i:0},
+    {a:'香港口岸', b:'端记茶楼', km:29, min:40, i:1},
+    {a:'端记茶楼', b:'海运大厦', km:16, min:30, i:2},
+    {a:'海运大厦', b:'浅水湾', km:13, min:25, i:3},
+    {a:'浅水湾', b:'赤柱广场', km:5, min:8, i:4},
+    {a:'赤柱广场', b:'石澳', km:11, min:18, i:5},
+    {a:'石澳', b:'山顶广场', km:23, min:35, i:6},
+    {a:'山顶广场', b:'香港口岸', km:40, min:50, i:7}
+  ];
+  const list = document.getElementById('legList');
+  legs.forEach(function(l, idx){
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'leg-row';
+    row.innerHTML = '<span class="leg-n">'+String(idx+1).padStart(2,'0')+'</span><span class="leg-t">'+l.a+' → '+l.b+'<small>'+(idx===0?'大桥段':'市区段')+'</small></span><span class="leg-m">'+l.km+' km<br>'+l.min+' min</span>';
+    row.addEventListener('mouseenter', function(){
+      if(routeLayers[l.i]) routeLayers[l.i].setStyle({color:'#ffd39a', weight:6});
+      row.classList.add('on');
+    });
+    row.addEventListener('mouseleave', function(){
+      if(routeLayers[l.i]) routeLayers[l.i].setStyle({color: l.i===0 ? '#ffb454' : '#54d6c6', weight: l.i===0 ? 3 : 3.4});
+      row.classList.remove('on');
+    });
+    row.addEventListener('click', function(){
+      if(routeLayers[l.i]) map.fitBounds(routeLayers[l.i].getBounds(), {padding:[70,70], maxZoom:13});
+    });
+    list.appendChild(row);
+  });
+})();
+
+/* ---------- cost ---------- */
+const COST = {
+  weekend: {park:{harbour:45, repulse:35, stanley:39, sheko:20}, tunnel:53, red:25},
+  weekday: {park:{harbour:38, repulse:25, stanley:28, sheko:15}, tunnel:58, red:30}
+};
+const RATE = 0.92;
+const FOOD = 1700, BRIDGE = 300, FUEL = 350;
+
+function fmt(n){ return '¥' + Math.round(n).toLocaleString('en-US'); }
+function hk(n){ return 'HK$' + Math.round(n).toLocaleString('en-US'); }
+
+function render(day){
+  const c = COST[day];
+  const park = c.park.harbour + c.park.repulse + c.park.stanley + c.park.sheko;
+  const parkCny = park * RATE, tunnelCny = c.tunnel * RATE;
+  const total = parkCny + tunnelCny + FOOD*RATE + BRIDGE + FUEL;
+
+  document.getElementById('rate-harbour').textContent = day==='weekend' ? '$45' : '$38';
+  document.getElementById('rate-repulse').textContent = day==='weekend' ? '$35' : '$25';
+  document.getElementById('rate-stanley').textContent = day==='weekend' ? '$39' : '$28';
+  document.getElementById('rate-sheko').textContent = day==='weekend' ? '$40' : '$30';
+
+  document.getElementById('cost-harbour').textContent = hk(c.park.harbour);
+  document.getElementById('cost-repulse').textContent = hk(c.park.repulse);
+  document.getElementById('cost-stanley').textContent = hk(c.park.stanley);
+  document.getElementById('cost-sheko').textContent = hk(c.park.sheko);
+
+  document.getElementById('parkHkd').textContent = hk(park);
+  document.getElementById('parkCny').textContent = Math.round(parkCny).toLocaleString('en-US');
+  document.getElementById('tunnelHkd').textContent = hk(c.tunnel);
+  document.getElementById('tunnelCny').textContent = Math.round(tunnelCny).toLocaleString('en-US');
+  document.getElementById('totalCny').textContent = fmt(total);
+  document.getElementById('perPerson').textContent = fmt(total/4);
+  document.getElementById('donutTotal').textContent = fmt(total);
+  document.getElementById('totalCell').textContent = Math.round(total).toLocaleString('en-US');
+
+  const parts = [
+    {k:'餐饮', v:FOOD*RATE, c:'#54d6c6'},
+    {k:'油费', v:FUEL, c:'#ffb454'},
+    {k:'大桥', v:BRIDGE, c:'#ff6f8e'},
+    {k:'停车', v:parkCny, c:'#9b8cff'},
+    {k:'隧道', v:tunnelCny, c:'#3f6d8a'}
+  ];
+  let acc = 0, stops = [];
+  parts.forEach(function(p){ acc += p.v; stops.push(p.c + ' ' + (acc/total*100).toFixed(1) + '%'); });
+  document.getElementById('donut').style.background = 'conic-gradient(' + stops.join(',') + ')';
+  document.getElementById('dlegend').innerHTML = parts.map(function(p){
+    return '<span><em style="font-style:normal"><i style="background:'+p.c+'"></i>'+p.k+'</em><b>'+fmt(p.v)+'</b></span>';
+  }).join('');
+}
+
+document.querySelectorAll('.seg-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.seg-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    render(btn.dataset.day);
+  });
+});
+render('weekend');
+
+document.querySelectorAll('table').forEach(function(t){
+  var heads = Array.prototype.map.call(t.querySelectorAll('thead th'), function(h){ return h.textContent.trim(); });
+  t.querySelectorAll('tbody tr').forEach(function(tr){
+    Array.prototype.forEach.call(tr.children, function(td, i){
+      if(heads[i]) td.setAttribute('data-label', heads[i]);
+    });
+  });
+});
+
+/* ---------- ui ---------- */
+const prog = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll(){
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+  if(window.scrollY > 600) toTop.classList.add('show'); else toTop.classList.remove('show');
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+
+const io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.06, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
